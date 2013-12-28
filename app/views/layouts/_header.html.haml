@@ -1,0 +1,33 @@
+%nav.navbar
+  .row.top
+    .twelve.columns
+      .text-align-right
+  .row.bottom
+    .six.columns
+      %h3.six.columns.logo
+
+        MPS 
+    .six.columns
+      /- Social Networking Buttons
+      .five.push_one.columns
+        %h6.social-networking-title Sign Up for Newsletter
+        %ul.social-networking
+          %li
+            =link_to '#' do
+              %i.icon-facebook
+          %li
+            =link_to '#' do
+              %i.icon-twitter
+          %li
+            =link_to '#' do
+              %i.icon-gplus
+          %li
+            =link_to '#' do
+              %i.icon-rss
+      /- Search
+      / %ul.six.columns
+      /   %li.field
+      /     %input{:type => 'search', :placeholder => 'Search News', :class => 'large email input'}
+      /   /
+      /     .medium.primary.btn
+      /       =link_to 'Go', '#'

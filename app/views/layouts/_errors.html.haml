@@ -1,0 +1,7 @@
+.ten.columns
+  - if flash[:error]
+    %li.primary.alert
+      = flash[:error].html_safe
+  - if flash[:notice]
+    %li.success.alert
+      = flash[:notice].html_safe
