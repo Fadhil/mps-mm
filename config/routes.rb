@@ -1,4 +1,7 @@
 Mps::Application.routes.draw do
+  resources :media_profiles
+
+  root to: 'media_profiles#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

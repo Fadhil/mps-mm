@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Media type:
+  = @media_profile.media_type
+%p
+  %b Title:
+  = @media_profile.title
+%p
+  %b Name:
+  = @media_profile.name
+%p
+  %b Designation:
+  = @media_profile.designation
+%p
+  %b Company name:
+  = @media_profile.company_name
+%p
+  %b Office phone:
+  = @media_profile.office_phone
+%p
+  %b Phone:
+  = @media_profile.phone
+%p
+  %b Email:
+  = @media_profile.email
+
+= link_to 'Edit', edit_media_profile_path(@media_profile)
+\|
+= link_to 'Back', media_profiles_path
