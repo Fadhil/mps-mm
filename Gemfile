@@ -28,6 +28,10 @@ group :test, :development do
   gem 'sqlite3'
 end
 
+group :development do
+  gem 'letter_opener'
+end
+
 group :production do
   gem 'pg'
 end
@@ -40,6 +44,8 @@ gem 'ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog', '~>1.3.1'
+
+gem 'aws-ses', require: 'aws/ses'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
