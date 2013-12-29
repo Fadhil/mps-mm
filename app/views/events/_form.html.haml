@@ -11,6 +11,20 @@
               %th= f.label t('time')
               %td= f.time_select :time
             %tr
+              %th= f.label t('agenda_details')
+              %td
+                %span= f.file_field :agenda_details
+                - unless @event.new_record?
+                  %span= @event.agenda_details.nil? ? '' : image_tag(@event.agenda_details.thumb)
+              
+            %tr
+              %th= f.label t('letter')
+              %td
+                %span= f.file_field :letter
+                - unless @event.new_record?
+                  %span= @event.letter.nil? ? '' : image_tag(@event.letter.thumb)
+             
+            %tr
               %th= f.label t('venue')
               %td= f.text_field :venue, class: 'text input'
             %tr

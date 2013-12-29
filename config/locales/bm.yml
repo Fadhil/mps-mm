@@ -11,6 +11,7 @@ bm:
     
   hello: "Hello world"
   are_you_sure: 'Anda Pasti?'
+  agenda_details: 'Maklumat Agenda'
   back: 'Kembali'
   date: 'Tarikh'
   time: 'Masa'
@@ -24,6 +25,7 @@ bm:
   name_title: 'Gelaran'
   designation: 'Jawatan'
   edit_media_profile: 'Kemas Kini Profil Media'
+  letter: 'surat'
   new_media_profile: 'Profil Media Baru'
   edit_event: 'Kemas Kini Acara'
   new_event: 'Acara Baru'
@@ -32,8 +34,8 @@ bm:
   company_name: 'Nama Syarikat'
   office_phone: 'No Telefon Ofis'
   phone: 'No Telefon'
-  event_successfuly_created: 'Acara Berjaya Didaftar'
-  event_successfuly_updated: 'Acara Berjaya Dikemas Kini'
+  event_successfully_created: 'Acara Berjaya Didaftar'
+  event_successfully_updated: 'Acara Berjaya Dikemas Kini'
   media_profile_successfully_created: 'Profil Media Berjaya Didaftar'
   media_profile_successfully_updated: 'Profile Media Berjaya Dikemas Kini'
   save: 'Simpan'
