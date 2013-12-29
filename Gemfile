@@ -47,6 +47,8 @@ gem 'fog', '~>1.3.1'
 
 gem 'aws-ses', require: 'aws/ses'
 
+gem 'nested_form'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
