@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2013-12-29
+  time: 2013-12-29 17:34:52
+  venue: MyString
+  official: MyString
+  organizer: MyString
+
+two:
+  date: 2013-12-29
+  time: 2013-12-29 17:34:52
+  venue: MyString
+  official: MyString
+  organizer: MyString

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Date:
+  = @event.date
+%p
+  %b Time:
+  = @event.time
+%p
+  %b Venue:
+  = @event.venue
+%p
+  %b Official:
+  = @event.official
+%p
+  %b Organizer:
+  = @event.organizer
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path

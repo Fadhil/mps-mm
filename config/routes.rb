@@ -1,4 +1,6 @@
 Mps::Application.routes.draw do
+  resources :events
+
   resources :media_profiles
 
   root to: 'media_profiles#index'
