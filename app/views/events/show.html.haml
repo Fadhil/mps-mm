@@ -1,21 +1,32 @@
-%p#notice= notice
+.row
+  %h2.four.columns= t('.title')
+  .btn.secondary.medium.push_five.three.columns
+    = link_to t('edit_event'), edit_event_path(@event)
 
-%p
-  %b Date:
-  = @event.date
-%p
-  %b Time:
-  = @event.time
-%p
-  %b Venue:
-  = @event.venue
-%p
-  %b Official:
-  = @event.official
-%p
-  %b Organizer:
-  = @event.organizer
+%table.rounded
 
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+  %tbody
+    %tr
+      %td=t('date')
+      %td= @event.date.strftime('%d-%m-%Y')
+    %tr
+      %td=t('time')
+      %td= @event.time.to_s(:time)
+    %tr
+      %td=t('venue')
+      %td= @event.venue
+    %tr
+      %td=t('official')
+      %td= @event.official
+    %tr
+      %td=t('organizer')
+      %td= @event.organizer
+
+%br
+
+
+%span.medium.btn.primary
+  = link_to t('back'), events_path
+
+
+

@@ -1,27 +1,32 @@
-%h1 Listing events
+.row
+  %h2.four.columns= t('.title')
+  .btn.primary.medium.push_five.three.columns
+    = link_to t('new_event'), new_event_path
 
-%table
-  %tr
-    %th Date
-    %th Time
-    %th Venue
-    %th Official
-    %th Organizer
-    %th
-    %th
-    %th
 
-  - @events.each do |event|
+%table.rounded
+  %thead
     %tr
-      %td= event.date
-      %td= event.time
-      %td= event.venue
-      %td= event.official
-      %td= event.organizer
-      %td= link_to 'Show', event
-      %td= link_to 'Edit', edit_event_path(event)
-      %td= link_to 'Destroy', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= t('date')
+      %th= t('time')
+      %th= t('venue')
+      %th= t('official')
+      %th= t('organizer')
+      %th
+      %th
+      %th
+
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= link_to event.date.strftime('%d-%m-%Y'), event, class: 'show-link'
+        %td= event.time.to_s(:time)
+        %td= link_to event.venue, event, class: 'show-link'
+        %td= event.official
+        %td= event.organizer
+        %td
+          %span.btn.medium.warning= link_to t('edit'), edit_event_path(event)
+        %td
+          %span.btn.medium.danger= link_to t('destroy'), event, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Event', new_event_path

@@ -36,6 +36,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'rails-i18n'
+
 gem 'simple-rss'
 #gem 'feedzirra'
 gem 'haml-rails', '>=0.3.4'
