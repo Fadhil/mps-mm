@@ -1,30 +1,41 @@
-%p#notice= notice
+.row
+  %h2.four.columns= t('.title')
+  .btn.secondary.medium.push_five.three.columns
+    = link_to t('edit_media_profile'), edit_media_profile_path(@media_profile)
 
-%p
-  %b Media type:
-  = @media_profile.media_type
-%p
-  %b Title:
-  = @media_profile.title
-%p
-  %b Name:
-  = @media_profile.name
-%p
-  %b Designation:
-  = @media_profile.designation
-%p
-  %b Company name:
-  = @media_profile.company_name
-%p
-  %b Office phone:
-  = @media_profile.office_phone
-%p
-  %b Phone:
-  = @media_profile.phone
-%p
-  %b Email:
-  = @media_profile.email
 
-= link_to 'Edit', edit_media_profile_path(@media_profile)
-\|
-= link_to 'Back', media_profiles_path
+
+%table.rounded
+
+  %tbody
+    %tr
+      %td=t('media_type')
+      %td= @media_profile.media_type
+    %tr
+      %td=t('name_title')
+      %td= @media_profile.title
+    %tr
+      %td=t('name')
+      %td= @media_profile.name
+    %tr
+      %td=t('designation')
+      %td= @media_profile.designation
+    %tr
+      %td=t('company_name')
+      %td= @media_profile.company_name
+    %tr
+      %td=t('email')
+      %td= @media_profile.email
+    %tr
+      %td=t('phone')
+      %td= @media_profile.phone
+    %tr
+      %td=t('office_phone')
+      %td= @media_profile.office_phone
+
+%br
+
+
+%span.medium.btn.primary
+  = link_to t('back'), media_profiles_path
+

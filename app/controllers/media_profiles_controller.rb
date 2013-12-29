@@ -44,9 +44,10 @@ class MediaProfilesController < ApplicationController
 
     respond_to do |format|
       if @media_profile.save
-        format.html { redirect_to @media_profile, notice: 'Media profile was successfully created.' }
+        format.html { redirect_to @media_profile, notice: t('media_profile_successfully_created') }
         format.json { render json: @media_profile, status: :created, location: @media_profile }
       else
+        flash[:error] = @media_profile.errors.full_messages
         format.html { render action: "new" }
         format.json { render json: @media_profile.errors, status: :unprocessable_entity }
       end
@@ -60,9 +61,10 @@ class MediaProfilesController < ApplicationController
 
     respond_to do |format|
       if @media_profile.update_attributes(params[:media_profile])
-        format.html { redirect_to @media_profile, notice: 'Media profile was successfully updated.' }
+        format.html { redirect_to @media_profile, notice: t('media_profile_successfully_updated') }
         format.json { head :no_content }
       else
+        flash[:error] = @media_profile.errors.full_messages
         format.html { render action: "edit" }
         format.json { render json: @media_profile.errors, status: :unprocessable_entity }
       end

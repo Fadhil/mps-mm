@@ -1,4 +1,41 @@
-= form_for @media_profile do |f|
+= nested_form_for @media_profile, html: {multipart: true} do |f|
+  .container
+    .row
+      .field
+        %table.table.strip.show-table
+          %tbody
+            %tr
+              %th= f.label t('.title')
+              %td
+                .picker= f.select :title, options_for_select(MediaProfile.titles)
+            %tr
+              %th= f.label t('name')
+              %td= f.text_field :name, :class => 'text input'
+            %tr
+              %th= f.label t('designation')
+              %td= f.text_field :designation, :class => 'text input'
+            %tr
+              %th= f.label t('media_type')
+              %td
+                .picker= f.select :media_type, options_for_select(MediaProfile.media_types)
+            %tr
+              %th= f.label t('company_name')
+              %td= f.text_field :company_name, class: 'text input'
+            %tr
+              %th= f.label t('email')
+              %td= f.text_field :email, class: 'text input'
+            %tr
+              %th= f.label t('office_phone')
+              %td= f.text_field :office_phone, class: 'text input'
+            %tr
+              %th= f.label t('phone')
+              %td= f.text_field :phone, class: 'text input'
+    .row            
+      .actions
+        %span.medium.btn.primary
+          = f.submit  t('save')
+     
+/         
   - if @media_profile.errors.any?
     #error_explanation
       %h2= "#{pluralize(@media_profile.errors.count, "error")} prohibited this media_profile from being saved:"
@@ -6,29 +43,3 @@
         - @media_profile.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :media_type
-    = f.text_field :media_type
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :designation
-    = f.text_field :designation
-  .field
-    = f.label :company_name
-    = f.text_field :company_name
-  .field
-    = f.label :office_phone
-    = f.text_field :office_phone
-  .field
-    = f.label :phone
-    = f.text_field :phone
-  .field
-    = f.label :email
-    = f.text_field :email
-  .actions
-    = f.submit 'Save'
