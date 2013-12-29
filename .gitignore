@@ -2,6 +2,8 @@
 *~
 *.orig
 *.bak
+.bundler_stubs/
+.bundler_stubs/*
 .DS_Store
 .gitkeep
 .idea/
