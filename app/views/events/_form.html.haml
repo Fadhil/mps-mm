@@ -6,19 +6,19 @@
           %tbody
             %tr
               %th= f.label t('date')
-              %td= f.text_field :date, class: 'datepicker', value: ( @event.date.strftime('%d-%m-%Y') unless @event.new_record? )
+              %td= f.text_field :date, class: 'text input datepicker', value: ( @event.date.strftime('%d-%m-%Y') unless @event.new_record? )
             %tr
               %th= f.label t('time')
               %td= f.time_select :time
             %tr
               %th= f.label t('venue')
-              %td= f.text_field :venue
+              %td= f.text_field :venue, class: 'text input'
             %tr
               %th= f.label t('official')
-              %td= f.text_field :official
+              %td= f.text_field :official, class: 'text input'
             %tr
               %th= f.label t('organizer')
-              %td= f.text_field :organizer
+              %td= f.text_field :organizer, class: 'text input'
     .row
       %span.btn.primary.medium
         = f.submit t('save')
