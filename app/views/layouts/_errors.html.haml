@@ -1,7 +1,12 @@
 .ten.columns
   - if flash[:error]
-    %li.primary.alert
-      = flash[:error].html_safe
+    - if flash[:error].is_a?(Array)
+      - flash[:error].each do |error|
+        %li.danger.alert
+          = error.html_safe
+    -else
+      %li.danger.alert
+        = flash[:error].html_safe
   - if flash[:notice]
     %li.success.alert
       = flash[:notice].html_safe

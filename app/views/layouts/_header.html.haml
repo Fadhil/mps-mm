@@ -10,11 +10,10 @@
     .six.columns
       /- Social Networking Buttons
       .five.push_one.columns
-        %h6.social-networking-title Sign Up for Newsletter
-        %ul.social-networking
+        %ul
           %li
-            =link_to '#' do
-              %i.icon-facebook
+            =link_to media_profiles_path do
+              = t('.list_all_media_profiles')
           %li
             =link_to '#' do
               %i.icon-twitter
