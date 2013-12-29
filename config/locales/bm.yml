@@ -1,0 +1,57 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+bm:
+  hello: "Hello world"
+  are_you_sure: 'Anda Pasti?'
+  back: 'Kembali'
+  show: 'Papar'
+  edit: 'Kemas Kini'
+  destroy: 'Padam'
+  name: 'Nama'
+  name_title: 'Gelaran'
+  designation: 'Jawatan'
+  edit_media_profile: 'Kemas Kini Profil Media'
+  new_media_profile: 'Profil Media Baru'
+  email: 'Email'
+  media_type: 'Jenis Media'
+  company_name: 'Nama Syarikat'
+  office_phone: 'No Telefon Ofis'
+  phone: 'No Telefon'
+  media_profile_successfully_created: 'Profil Media Berjaya Didaftar'
+  media_profile_successfully_updated: 'Profile Media Berjaya Dikemas Kini'
+  save: 'Simpan'
+
+  media_profiles: 
+    index:
+      title: 'Profil Media'
+    new:
+      title: 'Profil Media Baru'
+    edit:
+      title: 'Mengemas Kini Profil Media'
+    form:
+      title: 'Gelaran'
+    show:
+      title: 'Maklumat Profil Media'
+      name_title: 'Gelaran'
+
+  layouts:
+    header:
+      list_all_media_profiles: 'Senarai Profil Media'
+
+  activerecord:
+    attributes: 
+      media_profile:
+        name: 'Nama'
+        company_name: 'Nama Syarikat'
+    errors:
+      models:
+        media_profile:
+          attributes:
+            name:
+              blank: 'tidak boleh kosong.'
+            company_name:
+              blank: 'tidak boleh kosong.'
+
+
+  
