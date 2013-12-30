@@ -52,5 +52,54 @@
 %span.medium.btn.primary
   = link_to t('back'), events_path
 
+%br
+
+.row
+  - if @event.attendance_list
+    - if @event.attendance_list.attendees.count > 0 #&& !@event.attendance_list.completed
+      .row
+        .ten.columns
+          %h5= t('.attendance_list')
+        .two.columns
+          %span.pretty.medium.btn.info.print-disabled
+            = link_to t('print'), '#', onClick: "print();"
+      %hr.divider
+      %table.table.table-striped
+        %thead
+          %tr
+            %th
+              ID
+            %th
+              Name
+            %th
+              Email
+            %th
+              Company
+        %tbody
+          - @event.attendance_list.attendees.each_with_index do |attendee, index|
+            %tr
+              %td
+                = index + 1
+              %td
+                %p= attendee.name
+              %td
+                = attendee.email
+              %td
+                = attendee.company_name
+              %td
+                - if !attendee.attended.nil? && !attendee.attendance_status.nil?
+                  = t(attendee.attendance_status)
+                - else
+                  %ul.print-disabled
+                    %li
+                      %small
+                        = link_to t('present'), update_attendance_path(user_id: attendee.user_id, attendee_id: attendee.id, course_id: @course.id, attended: true, attendance_status: 'present'), method: :post
+                    %li
+                      %small
+                        = link_to t('not_present'), update_attendance_path(user_id: attendee.user_id, attendee_id: attendee.id, course_id: @course.id, attended: false, attendance_status: 'not_present'), method: :post
+                    %li
+                      %small
+                        = link_to t('cannot_attend'), update_attendance_path(user_id: attendee.user_id, attendee_id: attendee.id, course_id: @course.id, attended: false, attendance_status: 'cannot_attend'), method: :post
+
 
 

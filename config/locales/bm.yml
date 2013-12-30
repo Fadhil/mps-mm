@@ -62,6 +62,7 @@ bm:
       title: 'Kemas Kini Acara'
     show:
       title: 'Maklumat Acara'
+      attendance_list: 'Senarai Kedatangan'
 
   layouts:
     header:
