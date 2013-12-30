@@ -1,6 +1,25 @@
 ---
+entypo.eot: 946bbe4fbe7238f7643b8d9d10eb3350
+entypo.ttf: 5cf5adf64bfc57f19daee03e3861f333
+entypo.woff: e4ac552355806ff57d217a077ddbc17e
+polaris_v2_bold.eot: e9f11c195f525d1858690f1b0ca13033
+polaris_v2_bold.svg: 53d791c69762a62c97166ccc70ed8b64
+polaris_v2_bold.ttf: d62fc520a51117127c1eb697133e85fc
+polaris_v2_bold.woff: ff8608ca80552f39105f27ea911746b8
+polaris_v2_book.eot: 483ac8976a84d5cd792f18838deaa59a
+polaris_v2_book.svg: cef4e9d8d9c1c2dd6caf8b239899579d
+polaris_v2_book.ttf: 67630e40532cd9675a406a1d99ae9f81
+polaris_v2_book.woff: ea1cef2430538e53c46e82f57b8fa411
+polaris_v2_light.eot: 75287e2a4840e5fdb2e1ee5618eb2688
+polaris_v2_light.svg: 94a838169bc3c542ce2e983119c89e47
+polaris_v2_light.ttf: f7e88e65d84384988d56e9206df5ee35
+polaris_v2_light.woff: 8783d1af6c698dfce04c9342b521c54c
+polaris_v2_medium.eot: 470439fdf7899cf6b5c4af2c22673f04
+polaris_v2_medium.svg: 882e75e6dab1f43b0a4ba3fc9a98fdde
+polaris_v2_medium.ttf: 418d6270d3f9f63e68a5f2a30d27983f
+polaris_v2_medium.woff: c628c9824a5a9b0602551fc34d3fb720
 rails.png: be8732dac73d845ac5b142c8fb5f9fb0
-application.js: 1b20aad134c66b925d21c8b30accdf51
+application.js: 6abdcfb556b711bd2bd5dd9ad2b9636d
 libs/jquery-1.10.1.min.map: 46e115ad48454a12025d51bf0e243af4
 libs/jquery-2.0.2.min.map: f2fc29449e9df31ff4e5ecf84ee01d3a
 application.css: fa5118a7e7bd3f2f517633066396a29d

@@ -1,6 +1,25 @@
 ---
+entypo.eot: entypo-946bbe4fbe7238f7643b8d9d10eb3350.eot
+entypo.ttf: entypo-5cf5adf64bfc57f19daee03e3861f333.ttf
+entypo.woff: entypo-e4ac552355806ff57d217a077ddbc17e.woff
+polaris_v2_bold.eot: polaris_v2_bold-e9f11c195f525d1858690f1b0ca13033.eot
+polaris_v2_bold.svg: polaris_v2_bold-53d791c69762a62c97166ccc70ed8b64.svg
+polaris_v2_bold.ttf: polaris_v2_bold-d62fc520a51117127c1eb697133e85fc.ttf
+polaris_v2_bold.woff: polaris_v2_bold-ff8608ca80552f39105f27ea911746b8.woff
+polaris_v2_book.eot: polaris_v2_book-483ac8976a84d5cd792f18838deaa59a.eot
+polaris_v2_book.svg: polaris_v2_book-cef4e9d8d9c1c2dd6caf8b239899579d.svg
+polaris_v2_book.ttf: polaris_v2_book-67630e40532cd9675a406a1d99ae9f81.ttf
+polaris_v2_book.woff: polaris_v2_book-ea1cef2430538e53c46e82f57b8fa411.woff
+polaris_v2_light.eot: polaris_v2_light-75287e2a4840e5fdb2e1ee5618eb2688.eot
+polaris_v2_light.svg: polaris_v2_light-94a838169bc3c542ce2e983119c89e47.svg
+polaris_v2_light.ttf: polaris_v2_light-f7e88e65d84384988d56e9206df5ee35.ttf
+polaris_v2_light.woff: polaris_v2_light-8783d1af6c698dfce04c9342b521c54c.woff
+polaris_v2_medium.eot: polaris_v2_medium-470439fdf7899cf6b5c4af2c22673f04.eot
+polaris_v2_medium.svg: polaris_v2_medium-882e75e6dab1f43b0a4ba3fc9a98fdde.svg
+polaris_v2_medium.ttf: polaris_v2_medium-418d6270d3f9f63e68a5f2a30d27983f.ttf
+polaris_v2_medium.woff: polaris_v2_medium-c628c9824a5a9b0602551fc34d3fb720.woff
 rails.png: rails-be8732dac73d845ac5b142c8fb5f9fb0.png
-application.js: application-7010c7ae96bc1180294c5253cf3839af.js
+application.js: application-fcee2bbe647706f2730afc09f1cb377e.js
 libs/jquery-1.10.1.min.map: libs/jquery-1.10.1.min-46e115ad48454a12025d51bf0e243af4.map
 libs/jquery-2.0.2.min.map: libs/jquery-2.0.2.min-f2fc29449e9df31ff4e5ecf84ee01d3a.map
 application.css: application-479cb2eddd311eb846deda180f9edfc3.css
