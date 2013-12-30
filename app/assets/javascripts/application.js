@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require modernizr
 //= require gumby
+//= require jquery_nested_form
 //= require ui/gumby.checkbox
 //= require ui/gumby.fixed
 //= require ui/gumby.navbar

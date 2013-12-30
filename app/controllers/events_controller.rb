@@ -93,7 +93,8 @@ class EventsController < ApplicationController
     end
     flash[:notice]="Berjaya menghantar jemputan kepada #{selected_media.count} orang."
     selected_media.each do |m|
-      InvitationMailer.delay(:run_at => 1.minutes.from_now ).send_invites(m, @event)
+      #InvitationMailer.delay(:run_at => 1.minutes.from_now ).send_invites(m, @event)
+      InvitationMailer.send_invites(m, @event).deliver
       @event.add_participant(m)
     end
     redirect_to @event
@@ -120,5 +121,14 @@ class EventsController < ApplicationController
       end
     end
 
+  end
+
+  def add_walkins
+    @attendance_list = AttendanceList.find(params[:id])
+    @attendance_list.update_attributes(params[:attendance_list])
+    @attendance_list.save
+    respond_to do |format|
+      format.html { redirect_to request.referrer || root_path }
+    end
   end
 end

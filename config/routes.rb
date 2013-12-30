@@ -3,6 +3,7 @@ Mps::Application.routes.draw do
     member do
       post 'send_invites' => 'events#send_invites', as: :send_invites_to
       post 'update_attendance' => 'events#update_attendance', as: :update_attendance
+      post 'add_walkins' => 'events#add_walkins', as: :add_walkins
     end
   end
 
