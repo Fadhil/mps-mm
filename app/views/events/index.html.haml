@@ -9,8 +9,8 @@
     %tr
       %th= t('date')
       %th= t('time')
+      %th= t('name')
       %th= t('venue')
-      %th= t('official')
       %th= t('organizer')
       %th
       %th
@@ -21,8 +21,8 @@
       %tr
         %td= link_to event.date.strftime('%d-%m-%Y'), event, class: 'show-link'
         %td= event.time.to_s(:time)
+        %td= link_to event.name, event, class: 'show-link'
         %td= link_to event.venue, event, class: 'show-link'
-        %td= event.official
         %td= event.organizer
         %td
           %span.btn.medium.warning= link_to t('edit'), edit_event_path(event)
