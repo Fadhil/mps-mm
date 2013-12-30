@@ -113,7 +113,7 @@ class EventsController < ApplicationController
       respond_to do |format|
         format.html do
           @event = event
-          flash[:notice] = t('successfully_updated_event')
+          flash[:notice] = t('event_successfully_updated')
           redirect_to request.referrer
           #render action: '../pages/upcoming_courses_show'
         end
