@@ -39,6 +39,7 @@ end
 
 gem 'rails-i18n'
 gem 'delayed_job_active_record'
+gem 'daemons'
 
 gem 'simple-rss'
 #gem 'feedzirra'

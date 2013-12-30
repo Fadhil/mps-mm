@@ -35,4 +35,5 @@ Mps::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.asset_host = "http://localhost:3000"
 end

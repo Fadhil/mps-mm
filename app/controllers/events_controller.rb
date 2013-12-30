@@ -85,8 +85,16 @@ class EventsController < ApplicationController
 
   def send_invites
     @event = Event.find(params[:id])
-    selected_media = params[:member_profile_select]
-    flash[:notice]=selected_media
+    selected_media_type = params[:media_profile_select]
+    if selected_media_type == 'all_media'
+      selected_media = MediaProfile.all
+    else
+      selected_media = MediaProfile.where(media_type: selected_media_type)
+    end
+    flash[:notice]="Berjaya menghantar jemputan kepada #{selected_media.count} orang."
+    selected_media.each do |m|
+      InvitationMailer.delay(:run_at => 1.minutes.from_now ).send_invites(m, @event)
+    end
     redirect_to @event
 
   end

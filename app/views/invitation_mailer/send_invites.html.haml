@@ -1,0 +1,60 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8' http-equiv='Content-Type"}
+  %body
+    %h1
+      = "Tahniah, #{@media_profile.name},"
+    %p
+      = "Anda dijemput untuk menghadiri acara, #{@event.name}"
+      = "pada #{@event.date.strftime('%d-%m-%Y')} bermula pukul #{@event.time.to_s(:time)}."
+    %p 
+      Berikut adalah maklumat yang berkaitan:
+    %br
+    %table
+      %tbody
+        %tr
+          %td
+            %strong
+              =t('name')
+          %td
+            = @event.name
+        %tr
+          %td
+            %strong
+              =t('date')
+          %td
+            = @event.date.strftime('%d-%m-%Y')
+        %tr
+          %td
+            %strong
+              =t('time')
+          %td
+            = @event.time.to_s(:time)
+        %tr
+          %td
+            %strong
+              = t('venue')
+          %td
+            = @event.venue
+
+        -if !@event.agenda_details.blank?
+          %tr
+            %td
+              %strong
+                = t('agenda_details')
+            %td
+              = image_tag(@event.agenda_details)
+        -if !@event.letter.blank?
+          %tr
+            %td
+              %strong
+                = t('letter')
+            %td
+              = image_tag(@event.letter)
+    %br
+
+    %p
+      Kehadiran anda amat dialu-alukan.
+
+
