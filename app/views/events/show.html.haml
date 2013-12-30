@@ -7,6 +7,9 @@
 
   %tbody
     %tr
+      %td=t('name')
+      %td= @event.name
+    %tr
       %td=t('date')
       %td= @event.date.strftime('%d-%m-%Y')
     %tr
