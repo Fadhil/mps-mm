@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  event_id: 1
+  attendee_counter: 1
+  completed: false
+
+two:
+  event_id: 1
+  attendee_counter: 1
+  completed: false

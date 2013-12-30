@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  media_profile_id: 1
+  attended: false
+  attendance_list_id: 1
+  attendance_status: MyString
+
+two:
+  media_profile_id: 1
+  attended: false
+  attendance_list_id: 1
+  attendance_status: MyString
