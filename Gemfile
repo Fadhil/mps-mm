@@ -38,6 +38,7 @@ group :production do
 end
 
 gem 'rails-i18n'
+gem 'delayed_job_active_record'
 
 gem 'simple-rss'
 #gem 'feedzirra'
