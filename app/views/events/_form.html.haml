@@ -5,6 +5,10 @@
         %table.table.strip.show-table
           %tbody
             %tr
+              %th= f.label t('name')
+              %td= f.text_field :name, class: 'text input'
+            %tr
+
               %th= f.label t('date')
               %td= f.text_field :date, class: 'text input datepicker', value: ( @event.date.strftime('%d-%m-%Y') unless @event.new_record? )
             %tr

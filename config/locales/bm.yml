@@ -71,6 +71,10 @@ bm:
       media_profile:
         name: 'Nama'
         company_name: 'Nama Syarikat'
+      event:
+        name: 'Nama'
+        venue: 'Tempat'
+        date: 'Tarikh'
     errors:
       models:
         media_profile:
@@ -78,6 +82,14 @@ bm:
             name:
               blank: 'tidak boleh kosong.'
             company_name:
+              blank: 'tidak boleh kosong.'
+        event:
+          attributes:
+            name: 
+              blank: 'tidak boleh kosong.'
+            venue:
+              blank: 'tidak boleh kosong.'
+            date: 
               blank: 'tidak boleh kosong.'
 
 

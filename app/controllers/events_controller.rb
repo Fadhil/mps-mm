@@ -47,6 +47,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, notice: t('event_successfully_created') }
         format.json { render json: @event, status: :created, location: @event }
       else
+        flash[:error] = @event.errors.full_messages
         format.html { render action: "new" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -63,6 +64,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, notice: t('event_successfully_updated') }
         format.json { head :no_content }
       else
+        flash[:error] = @event.errors.full_messages
         format.html { render action: "edit" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
