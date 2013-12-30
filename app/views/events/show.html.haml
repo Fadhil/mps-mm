@@ -53,7 +53,7 @@
   = link_to t('back'), events_path
 
 %br
-
+%br
 .row
   - if @event.attendance_list
     - if @event.attendance_list.attendees.count > 0 #&& !@event.attendance_list.completed
@@ -70,22 +70,31 @@
             %th
               ID
             %th
-              Name
+              =t('nama')
             %th
-              Email
+              =t('email')
             %th
-              Company
+              =t('company_name')
+            %th
+              =t('read_email')
+            %th
+              =t('rsvp_response')
+            %th
         %tbody
           - @event.attendance_list.attendees.each_with_index do |attendee, index|
             %tr
               %td
                 = index + 1
               %td
-                %p= attendee.media_profile.name
+                = attendee.media_profile.name
               %td
                 = attendee.media_profile.email
               %td
                 = attendee.media_profile.company_name
+              %td
+                NIL
+              %td
+                NIL
               %td
                 - if !attendee.attended.nil? && !attendee.attendance_status.nil?
                   = t(attendee.attendance_status)
