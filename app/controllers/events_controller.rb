@@ -94,8 +94,31 @@ class EventsController < ApplicationController
     flash[:notice]="Berjaya menghantar jemputan kepada #{selected_media.count} orang."
     selected_media.each do |m|
       InvitationMailer.delay(:run_at => 1.minutes.from_now ).send_invites(m, @event)
+      @event.add_participant(m)
     end
     redirect_to @event
+
+  end
+
+  def update_attendance
+    media_profile = MediaProfile.find(params[:media_profile_id]) rescue nil 
+    attendance = Attendee.find(params[:attendee_id]) rescue nil
+    event = Event.find(params[:event_id]) rescue nil
+    attended = params[:attended]
+    attendance.attended = attended
+    attendance.attendance_status = params[:attendance_status]
+
+
+    if attendance.save
+      respond_to do |format|
+        format.html do
+          @event = event
+          flash[:notice] = t('successfully_updated_event')
+          redirect_to request.referrer
+          #render action: '../pages/upcoming_courses_show'
+        end
+      end
+    end
 
   end
 end

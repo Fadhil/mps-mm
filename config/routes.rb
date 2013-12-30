@@ -2,6 +2,7 @@ Mps::Application.routes.draw do
   resources :events do
     member do
       post 'send_invites' => 'events#send_invites', as: :send_invites_to
+      post 'update_attendance' => 'events#update_attendance', as: :update_attendance
     end
   end
 

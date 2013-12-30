@@ -16,4 +16,6 @@ class MediaProfile < ActiveRecord::Base
   def self.media_types
     ['Media Cetak', 'Media Elektronik', 'Dalaman - Ahli Majlis MPS', 'Dalaman - Pengarah Jabatan MPS']
   end
+
+
 end

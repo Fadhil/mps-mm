@@ -18,4 +18,11 @@ class Event < ActiveRecord::Base
       self.attendance_list = AttendanceList.create
     end
   end
+
+  def add_participant(p)
+    media_profile = p
+
+    self.attendance_list.attendees.create(media_profile_id: media_profile.id)
+    self.save
+  end
 end

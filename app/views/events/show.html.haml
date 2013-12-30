@@ -81,11 +81,11 @@
               %td
                 = index + 1
               %td
-                %p= attendee.name
+                %p= attendee.media_profile.name
               %td
-                = attendee.email
+                = attendee.media_profile.email
               %td
-                = attendee.company_name
+                = attendee.media_profile.company_name
               %td
                 - if !attendee.attended.nil? && !attendee.attendance_status.nil?
                   = t(attendee.attendance_status)
@@ -93,13 +93,13 @@
                   %ul.print-disabled
                     %li
                       %small
-                        = link_to t('present'), update_attendance_path(user_id: attendee.user_id, attendee_id: attendee.id, course_id: @course.id, attended: true, attendance_status: 'present'), method: :post
+                        = link_to t('present'), update_attendance_event_path(media_profile_id: attendee.media_profile_id, attendee_id: attendee.id, event_id: @event.id, attended: true, attendance_status: 'present'), method: :post
                     %li
                       %small
-                        = link_to t('not_present'), update_attendance_path(user_id: attendee.user_id, attendee_id: attendee.id, course_id: @course.id, attended: false, attendance_status: 'not_present'), method: :post
+                        = link_to t('not_present'), update_attendance_event_path(media_profile_id: attendee.media_profile_id, attendee_id: attendee.id, event_id: @event.id, attended: false, attendance_status: 'not_present'), method: :post
                     %li
                       %small
-                        = link_to t('cannot_attend'), update_attendance_path(user_id: attendee.user_id, attendee_id: attendee.id, course_id: @course.id, attended: false, attendance_status: 'cannot_attend'), method: :post
+                        = link_to t('cannot_attend'), update_attendance_event_path(media_profile_id: attendee.media_profile_id, attendee_id: attendee.id, event_id: @event.id, attended: false, attendance_status: 'cannot_attend'), method: :post
 
 
 
