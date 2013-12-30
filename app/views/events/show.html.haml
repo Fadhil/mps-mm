@@ -30,6 +30,21 @@
     %tr
       %td=t('organizer')
       %td= @event.organizer
+%br
+
+.row
+  .twelve.columns
+    %h3
+      Hantar Jemputan Ke:
+    = form_for '', url: send_invites_to_event_path(@event) do |f|
+      %ul
+        %li.field
+          .picker
+            - select_options = [[t('all_media'),'all_media']] + MediaProfile.media_types.map{ |a| [a,a]}
+            = select_tag 'member_profile_select', options_for_select(select_options)
+        %li
+          %span.btn.medium.primary
+            = f.button t('send')
 
 %br
 

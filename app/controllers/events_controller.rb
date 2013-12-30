@@ -82,4 +82,12 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def send_invites
+    @event = Event.find(params[:id])
+    selected_media = params[:member_profile_select]
+    flash[:notice]=selected_media
+    redirect_to @event
+
+  end
 end

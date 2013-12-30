@@ -1,5 +1,9 @@
 Mps::Application.routes.draw do
-  resources :events
+  resources :events do
+    member do
+      post 'send_invites' => 'events#send_invites', as: :send_invites_to
+    end
+  end
 
   resources :media_profiles
 

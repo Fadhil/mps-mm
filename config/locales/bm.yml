@@ -11,6 +11,7 @@ bm:
     
   hello: "Hello world"
   are_you_sure: 'Anda Pasti?'
+  all_media: 'Semua Media'
   agenda_details: 'Maklumat Agenda'
   back: 'Kembali'
   date: 'Tarikh'
@@ -39,6 +40,7 @@ bm:
   media_profile_successfully_created: 'Profil Media Berjaya Didaftar'
   media_profile_successfully_updated: 'Profile Media Berjaya Dikemas Kini'
   save: 'Simpan'
+  send: 'Hantar'
 
   media_profiles: 
     index:
