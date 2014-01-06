@@ -13,8 +13,6 @@
       %th= t('venue')
       %th= t('organizer')
       %th
-      %th
-      %th
 
   %tbody
     - @events.each do |event|
@@ -24,9 +22,9 @@
         %td= link_to event.name, event, class: 'show-link'
         %td= link_to event.venue, event, class: 'show-link'
         %td= event.organizer
-        %td
+        %td.buttons
           %span.btn.medium.warning= link_to t('edit'), edit_event_path(event)
-        %td
+          %br
           %span.btn.medium.danger= link_to t('destroy'), event, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
