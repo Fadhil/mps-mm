@@ -31,17 +31,16 @@
             %span.btn.medium.danger= link_to t('destroy'), media_profile, :method => :delete, :data => { :confirm => t('are_you_sure') }
         %tr
           %th
-          %td
-            .profile-details
-              %ul
-                %li
-                  %div
-                    %strong= t('designation') + ':'
-                  %div= media_profile.designation
-                %li
-                  %div
-                    %strong= t('office_phone') + ':'
-                  %div= media_profile.office_phone
+          %td.profile-details{colspan: 3}
+            %ul
+              %li
+                %div
+                  %strong= t('designation') + ':'
+                %div= media_profile.designation
+              %li
+                %div
+                  %strong= t('office_phone') + ':'
+                %div= media_profile.office_phone
         / %td= media_profile.designation
         / %td= media_profile.company_name
         / %td= media_profile.office_phone
