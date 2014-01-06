@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8' http-equiv='Content-Type"/>
+  </head>
+  <body>
+    <h1>
+      <%= "Tahniah, #{@media_profile.name}," %>
+    </h1>
+    <p>
+      <%= "Anda dijemput untuk menghadiri acara, #{@event.name}" %>
+      <%= "pada #{@event.date.strftime('%d-%m-%Y')} bermula pukul #{@event.time.to_s(:time)}." %>
+    </p>
+    <p>
+      Berikut adalah maklumat yang berkaitan:
+    </p>
+    <br/>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <strong>
+              <%= t('name') %>
+            </strong>
+          </td>
+          <td>
+            <%= @event.name %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>
+              <%= t('date') %>
+            </strong>
+          </td>
+          <td>
+            <%= @event.date.strftime('%d-%m-%Y') %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>
+              <%= t('time') %>
+            </strong>
+          </td>
+          <td>
+            <%= @event.time.to_s(:time) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>
+              <%= t('venue') %>
+            </strong>
+          </td>
+          <td>
+            <%= @event.venue %>
+          </td>
+        </tr>
+        <% if !@event.agenda_details.blank? %>
+          <tr>
+            <td>
+              <strong>
+                <%= t('agenda_details') %>
+              </strong>
+            </td>
+            <td>
+              <%= image_tag(@event.agenda_details) %>
+            </td>
+          </tr>
+        <% end %>
+        <% if !@event.letter.blank? %>
+          <tr>
+            <td>
+              <strong>
+                <%= t('letter') %>
+              </strong>
+            </td>
+            <td>
+              <%= image_tag(@event.letter) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br/>
+    <p>
+      Maklumat lanjut boleh didapati di <%= link_to 'sini', event_url(@event) %>
+    </p>
+    <p>
+      Kehadiran anda amat dialu-alukan.
+    </p>
+  </body>
+</html>
+
+
+
