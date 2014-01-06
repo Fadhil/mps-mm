@@ -16,6 +16,7 @@ bm:
   agenda_details: 'Maklumat Agenda'
   back: 'Kembali'
   date: 'Tarikh'
+  details: 'Maklumat'
   time: 'Masa'
   venue: 'Tempat'
   official: 'Perasmi'

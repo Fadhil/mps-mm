@@ -10,27 +10,41 @@
       %th= t('media_type')
       /%th= t('name_title')
       %th= t('name')
-      %th= t('designation')
       %th= t('company_name')
-      %th= t('office_phone')
+      / %th= t('designation')
+      / %th= t('company_name')
+      / %th= t('office_phone')
       %th= t('email')
-      %th
       %th
   %tbody
     - @media_profiles.each do |media_profile|
       %tr
-        %td= media_profile.media_type
-        /%td= media_profile.title
-        %td= link_to media_profile.name, media_profile, class: 'show-link'
-        %td= media_profile.designation
-        %td= media_profile.company_name
-        %td= media_profile.office_phone
-        %td= link_to media_profile.email, media_profile, class: 'show-link'
-        %td
-          %span.btn.medium.warning= link_to t('edit'), edit_media_profile_path(media_profile), class: 'wider-btn'
-        %td
-          %span.btn.medium.danger= link_to t('destroy'), media_profile, :method => :delete, :data => { :confirm => t('are_you_sure') }
-
+        %tr
+          %td= media_profile.media_type
+          /%td= media_profile.title
+          %td= link_to media_profile.name, media_profile, class: 'show-link'
+          %td= media_profile.company_name
+          %td= link_to media_profile.email, media_profile, class: 'show-link'
+          %td.buttons{rowspan: 2}
+            %span.btn.medium.warning= link_to t('edit'), edit_media_profile_path(media_profile), class: 'wider-btn'
+            %br
+            %span.btn.medium.danger= link_to t('destroy'), media_profile, :method => :delete, :data => { :confirm => t('are_you_sure') }
+        %tr
+          %th
+          %td
+            .profile-details
+              %ul
+                %li
+                  %div
+                    %strong= t('designation') + ':'
+                  %div= media_profile.designation
+                %li
+                  %div
+                    %strong= t('office_phone') + ':'
+                  %div= media_profile.office_phone
+        / %td= media_profile.designation
+        / %td= media_profile.company_name
+        / %td= media_profile.office_phone
 %br
 
 

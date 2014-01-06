@@ -8,6 +8,29 @@
   }
 }
 
+table {
+  .buttons {
+    a {
+      width: 150px;
+    }
+  }
+  .profile-details {
+    ul {
+      li {
+        float: left;
+        padding: 0 5px 0 5px;
+
+        border-right: 1px solid lightgray;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+    
+  }
+}
+
 .show-link {
   color: darkred !important;
 }
