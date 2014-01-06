@@ -26,10 +26,14 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
+end
+
+group :test do 
   gem 'sqlite3'
 end
 
 group :development do
+  gem 'mysql2'
   gem 'letter_opener'
 end
 
