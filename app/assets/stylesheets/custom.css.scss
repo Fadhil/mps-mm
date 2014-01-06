@@ -15,18 +15,17 @@ table {
     }
   }
   .profile-details {
-    ul {
-      li {
-        float: left;
-        padding: 0 5px 0 5px;
+    li {
+      float: left;
+      padding: 0 5px 0 5px;
 
-        border-right: 1px solid lightgray;
+      border-right: 1px solid lightgray;
 
-        &:last-child {
-          border-right: none;
-        }
+      &:last-child {
+        border-right: none;
       }
     }
+  
     
   }
 }
