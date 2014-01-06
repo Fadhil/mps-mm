@@ -94,7 +94,7 @@ class EventsController < ApplicationController
     flash[:notice]="Berjaya menghantar jemputan kepada #{selected_media.count} orang."
     selected_media.each do |m|
       #InvitationMailer.delay(:run_at => 1.minutes.from_now ).send_invites(m, @event)
-      InvitationMailer.send_invites(m,@event)
+      InvitationMailer.send_invites(m,@event).deliver
       @event.add_participant(m)
     end
     redirect_to @event
