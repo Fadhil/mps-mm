@@ -52,6 +52,7 @@ bm:
   media_profiles: 
     index:
       title: 'Profil Media'
+      choose_media_type: 'Pilih Jenis Media:'
     new:
       title: 'Profil Media Baru'
     edit:

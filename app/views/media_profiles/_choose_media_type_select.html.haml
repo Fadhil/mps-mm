@@ -1,0 +1,14 @@
+= form_for '', url: filter_media_profiles_path do |f|
+  .row
+    %h3.four.columns
+      = t('.choose_media_type')  
+  .row   
+    .three.columns 
+      %ul
+        %li.field
+          .picker
+            - select_options = [[t('all_media'),'all_media']] + MediaProfile.media_types.map{ |a| [a,a]}
+            = select_tag 'media_profile_select', options_for_select(select_options)
+    .two.columns
+      %span.inline.btn.medium.primary
+        = f.button t('send')

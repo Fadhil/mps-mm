@@ -17,5 +17,8 @@ class MediaProfile < ActiveRecord::Base
     ['Media Cetak', 'Media Elektronik', 'Dalaman - Ahli Majlis MPS', 'Dalaman - Pengarah Jabatan MPS']
   end
 
+  def self.filter_by_type(media_type)
+    self.where(media_type: media_type)
+  end
 
 end

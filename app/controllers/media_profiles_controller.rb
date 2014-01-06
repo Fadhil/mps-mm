@@ -10,6 +10,20 @@ class MediaProfilesController < ApplicationController
     end
   end
 
+  # POST /filter_media_profiles
+  def filter
+    media_type = params[:media_profile_select]
+    if media_type.to_sym == :all_media
+      @media_profiles = MediaProfile.all
+    else
+      @media_profiles = MediaProfile.filter_by_type(media_type)
+    end
+
+    respond_to do |format|
+      format.html { render :index }
+    end
+  end
+
   # GET /media_profiles/1
   # GET /media_profiles/1.json
   def show
