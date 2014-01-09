@@ -11,7 +11,7 @@
       %td= @event.name
     %tr
       %td=t('date')
-      %td= @event.date.strftime('%d-%m-%Y')
+      %td= @event.date.strftime('%d-%m-%Y') unless @event.date.nil?
     %tr
       %td=t('time')
       %td= @event.time.to_s(:time)
