@@ -17,7 +17,7 @@ class LetterUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w(jpg jpeg gif png pdf)
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -34,7 +34,7 @@ class LetterUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  version :thumb do
+  version :thumb, if: :image? do
      process :resize_to_fit => [200, 200]
   end
   # Create different versions of your uploaded files:
@@ -53,5 +53,9 @@ class LetterUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  protected
 
+def image?(new_file)
+  new_file.content_type.include? 'image'
+end
 end

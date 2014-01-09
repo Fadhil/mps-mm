@@ -17,10 +17,10 @@
       %td= @event.time.to_s(:time)
     %tr
       %td=t('agenda_details')
-      %td= @event.agenda_details.blank? ? '' : content_tag(:a, href: @event.agenda_details, class: 'image-link') do image_tag(@event.agenda_details.thumb) end
+      %td= display_uploaded_file(@event.agenda_details)
     %tr
       %td=t('letter')
-      %td= @event.letter.blank? ? '' : content_tag(:a, href: @event.letter, class: 'image-link') do image_tag(@event.letter.thumb) end
+      %td= display_uploaded_file(@event.letter)
     %tr
       %td=t('venue')
       %td= @event.venue
