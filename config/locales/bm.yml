@@ -111,6 +111,6 @@ bm:
               blank: 'tidak boleh kosong.'
   errors:
     messages:
-      extension_white_list_error: ": jenis fail yang dibenarkan: JPG,JPEG,PNG,PDF"
+      extension_white_list_error: ": Sila pastikan anda muat naik jenis fail yang betul"
 
 
