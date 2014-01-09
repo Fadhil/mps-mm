@@ -1,11 +1,13 @@
 module EventsHelper
   def display_uploaded_file(file)
-    the_thumb = ''
-    if file.to_s.split('.').last.downcase == 'pdf'
+    extension = file.to_s.split('.').last.try(:downcase)
+    if extension == 'pdf'
       
       content_tag(:a, href: file, class: 'image-link') do image_tag('pdf-icon.png') end
-    else
+    elsif extension.in?(['png','jpg','gif','jpeg'])
       content_tag(:a, href: file, class: 'image-link') do image_tag(file.thumb) end
+    else
+        'Tiada Fail Dijumpai'
     end
   end
 
