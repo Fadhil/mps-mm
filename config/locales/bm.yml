@@ -49,6 +49,7 @@ bm:
   save: 'Simpan'
   update: 'Kemas Kini'
   send: 'Hantar'
+  select: 'Pilih'
 
   media_profiles: 
     index:
@@ -79,6 +80,9 @@ bm:
       list_all_events: 'Senarai Acara'
 
   activerecord:
+    models:
+      event: Acara
+      media_profile: ProfilMedia
     attributes: 
       media_profile:
         name: 'Nama'
@@ -87,6 +91,8 @@ bm:
         name: 'Nama'
         venue: 'Tempat'
         date: 'Tarikh'
+        agenda_details: 'Maklumat Agenda'
+        letter: 'Surat'
     errors:
       models:
         media_profile:
@@ -103,5 +109,8 @@ bm:
               blank: 'tidak boleh kosong.'
             date: 
               blank: 'tidak boleh kosong.'
+  errors:
+    messages:
+      extension_white_list_error: ": jenis fail yang dibenarkan: JPG,JPEG,PNG,PDF"
 
 
