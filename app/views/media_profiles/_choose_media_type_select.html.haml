@@ -3,7 +3,7 @@
     %h3.four.columns
       = t('.choose_media_type')  
   .row   
-    .three.columns 
+    .five.columns 
       %ul
         %li.field
           .picker
@@ -11,4 +11,4 @@
             = select_tag 'media_profile_select', options_for_select(select_options)
     .two.columns
       %span.inline.btn.medium.primary
-        = f.button t('send')
+        = f.button t('select')
