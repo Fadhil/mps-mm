@@ -16,9 +16,9 @@ module EventsHelper
     when nil
       'Belum Jawab'
     when true
-      'Datang'
+      'Akan Hadir'
     when false
-      'Tidak Datang'
+      'Tidak Akan Hadir'
     end
   end
 end

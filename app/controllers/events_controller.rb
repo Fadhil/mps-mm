@@ -128,16 +128,20 @@ class EventsController < ApplicationController
     attendee = Attendee.find(params[:attendee_id])
     rsvp_response = params[:rsvp_response]
     attendee.rsvp = rsvp_response
+
     respond_to do |format|
       if attendee.save 
         #flash[:notice] = "Attendee: #{params[:attendee_id]}, RSVP: #{params[:rsvp_response]}"
-        format.html { redirect_to terima_kasih_event_path }
+        format.html { redirect_to terima_kasih_event_path(rsvp_response: rsvp_response) }
       end
     end
   end
 
   def terima_kasih
-
+    rsvp_response = params[:rsvp_response]
+    coming_message = "Terima Kasih kerana sudi menghadiri acara kami. "
+    not_coming_message = "Terima kasih kerana mengambil masa untuk menjawab RSVP kami. Semoga boleh jumpa lagi di acara lain."
+    @message = (rsvp_response.to_i == 1) ? coming_message : not_coming_message
   end
 
   def add_walkins
