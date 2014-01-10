@@ -94,7 +94,7 @@
               %td
                 NIL
               %td
-                NIL
+                = display_rsvp_status(attendee.rsvp) 
               %td{style: 'width: 80px;'}
                 - if !attendee.attended.nil? && !attendee.attendance_status.nil?
                   = t(attendee.attendance_status)

@@ -11,4 +11,14 @@ module EventsHelper
     end
   end
 
+  def display_rsvp_status(rsvp)
+    case rsvp
+    when nil
+      'Belum Jawab'
+    when true
+      'Datang'
+    when false
+      'Tidak Datang'
+    end
+  end
 end

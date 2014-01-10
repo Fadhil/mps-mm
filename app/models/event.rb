@@ -22,7 +22,8 @@ class Event < ActiveRecord::Base
   def add_participant(p)
     media_profile = p
     self.generate_attendance_list
-    self.attendance_list.attendees.create(media_profile_id: media_profile.id)
+    attendee = self.attendance_list.attendees.where(media_profile_id: media_profile).first || self.attendance_list.attendees.create(media_profile_id: media_profile.id)
     self.save
+    attendee
   end
 end

@@ -94,8 +94,9 @@ class EventsController < ApplicationController
     flash[:notice]="Berjaya menghantar jemputan kepada #{selected_media.count} orang."
     selected_media.each do |m|
       #InvitationMailer.delay(:run_at => 1.minutes.from_now ).send_invites(m, @event)
-      InvitationMailer.send_invites(m,@event).deliver
-      @event.add_participant(m)
+      attendee = @event.add_participant(m)
+      InvitationMailer.send_invites(m,@event, attendee).deliver
+      
     end
     redirect_to @event
 
@@ -120,6 +121,22 @@ class EventsController < ApplicationController
         end
       end
     end
+
+  end
+
+  def update_rsvp
+    attendee = Attendee.find(params[:attendee_id])
+    rsvp_response = params[:rsvp_response]
+    attendee.rsvp = rsvp_response
+    respond_to do |format|
+      if attendee.save 
+        #flash[:notice] = "Attendee: #{params[:attendee_id]}, RSVP: #{params[:rsvp_response]}"
+        format.html { redirect_to terima_kasih_event_path }
+      end
+    end
+  end
+
+  def terima_kasih
 
   end
 
