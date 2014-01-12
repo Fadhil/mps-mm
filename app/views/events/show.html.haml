@@ -114,11 +114,11 @@
   .row
     = nested_form_for @event.attendance_list, url: add_walkins_event_path(@event), method: :post do |f|
       = f.fields_for :walkins do |a|
-        = a.text_field :name, value: t('name'), :class => 'text input', :placeholder => t('name') if a.object.new_record?
-        = a.text_field :email, value: t('email'), :class => 'text input' if a.object.new_record?
-        = a.text_field :company_name, value: t('company_name'), :class => 'text input'if a.object.new_record?
-        = a.text_field :phone, value: t('phone') , :class => 'text input'if a.object.new_record?
-        = a.link_to_remove t('remove') if a.object.new_record?
+        = a.text_field :name, value: t('name'), :class => 'text input', :placeholder => t('name') #if a.object.new_record?
+        = a.text_field :email, value: t('email'), :class => 'text input' #if a.object.new_record?
+        = a.text_field :company_name, value: t('company_name'), :class => 'text input'#if a.object.new_record?
+        = a.text_field :phone, value: t('phone') , :class => 'text input'#if a.object.new_record?
+        = a.link_to_remove t('remove')# if a.object.new_record?
         =# a.hidden_field :attended, value: 1
       = f.link_to_add :walkins do
         %i.icon-user-add
