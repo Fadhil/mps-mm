@@ -56,7 +56,7 @@
 %br
 .row
   - if @event.attendance_list
-    - if @event.attendance_list.attendees.count > 0 #&& !@event.attendance_list.completed
+    - if @event.attendance_list.attendees.count > 0 # && @event.date >= Date.today
       .row
         .ten.columns
           %h5= t('.attendance_list')
@@ -95,21 +95,23 @@
                 NIL
               %td
                 = display_rsvp_status(attendee.rsvp) 
+
               %td{style: 'width: 80px;'}
-                - if !attendee.attended.nil? && !attendee.attendance_status.nil?
-                  = t(attendee.attendance_status)
-                - else
-                  %ul.print-disabled
-                    %li
-                      %small
-                        = link_to t('present'), update_attendance_event_path(media_profile_id: attendee.media_profile_id, attendee_id: attendee.id, event_id: @event.id, attended: true, attendance_status: 'present'), method: :post
-                    %li
-                      %small
-                        = link_to t('not_present'), update_attendance_event_path(media_profile_id: attendee.media_profile_id, attendee_id: attendee.id, event_id: @event.id, attended: false, attendance_status: 'not_present'), method: :post
-                    /
+                - if @event.date <= Date.today
+                  - if !attendee.attended.nil? && !attendee.attendance_status.nil?
+                    = t(attendee.attendance_status)
+                  - else
+                    %ul.print-disabled
                       %li
                         %small
-                          = link_to t('cannot_attend'), update_attendance_event_path(media_profile_id: attendee.media_profile_id, attendee_id: attendee.id, event_id: @event.id, attended: false, attendance_status: 'cannot_attend'), method: :post
+                          = link_to t('present'), update_attendance_event_path(media_profile_id: attendee.media_profile_id, attendee_id: attendee.id, event_id: @event.id, attended: true, attendance_status: 'present'), method: :post
+                      %li
+                        %small
+                          = link_to t('not_present'), update_attendance_event_path(media_profile_id: attendee.media_profile_id, attendee_id: attendee.id, event_id: @event.id, attended: false, attendance_status: 'not_present'), method: :post
+                      /
+                        %li
+                          %small
+                            = link_to t('cannot_attend'), update_attendance_event_path(media_profile_id: attendee.media_profile_id, attendee_id: attendee.id, event_id: @event.id, attended: false, attendance_status: 'cannot_attend'), method: :post
 
   .row
     = nested_form_for @event.attendance_list, url: add_walkins_event_path(@event), method: :post do |f|
