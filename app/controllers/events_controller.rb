@@ -145,8 +145,20 @@ class EventsController < ApplicationController
     @message = (rsvp_response.to_i == 1) ? coming_message : not_coming_message
   end
 
+  def track_open
+    url = 'http://farm1.staticflickr.com/54/120671629_8b7514a186_o.jpg'
+    the_host = request.port.blank? ? request.host : "#{request.host}:#{request.port}"
+    local_url = request.protocol + the_host + '/assets/images/rails.png'
+    image = open(local_url).read
+    logger.info local_url
+    response.headers['Cache-Control'] = "public, max-age=#{12.hours.to_i}"
+    response.headers['Content-Type'] = 'image/jpeg'
+    response.headers['Content-Disposition'] = 'inline'
+    render text: image
+  end
+
   def add_walkins
-    @attendance_list = AttendanceList.find(params[:id])
+    @attendance_list = Event.find(params[:id]).attendance_list
     @attendance_list.update_attributes(params[:attendance_list])
     @attendance_list.save
     respond_to do |format|
