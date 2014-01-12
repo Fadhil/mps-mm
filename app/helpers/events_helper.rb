@@ -7,7 +7,7 @@ module EventsHelper
     elsif extension.in?(['png','jpg','gif','jpeg'])
       content_tag(:a, href: file, class: 'image-link') do image_tag(file.thumb) end
     else
-        'Tiada Fail Dijumpai'
+        'Tiada Fail Dijumpai' + extension
     end
   end
 
