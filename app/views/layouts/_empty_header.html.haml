@@ -1,0 +1,17 @@
+%nav.navbar
+  .row.top
+    .twelve.columns
+      .text-align-right
+  .row.bottom
+    .six.columns
+      %h3.six.columns.logo
+
+        MPS 
+    
+      /- Search
+      / %ul.six.columns
+      /   %li.field
+      /     %input{:type => 'search', :placeholder => 'Search News', :class => 'large email input'}
+      /   /
+      /     .medium.primary.btn
+      /       =link_to 'Go', '#'

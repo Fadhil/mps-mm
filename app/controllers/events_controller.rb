@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
+  layout 'empty', only: [:terima_kasih]
   def index
     @events = Event.all
 

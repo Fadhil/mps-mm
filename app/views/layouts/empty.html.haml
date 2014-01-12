@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title MPS - Media Invite Manager
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = stylesheet_link_tag "//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"
+    = javascript_include_tag "//code.jquery.com/ui/1.10.3/jquery-ui.js"\
+
+    = javascript_include_tag :modernizr
+    = csrf_meta_tags
+  %body
+    = render 'layouts/empty_header'
+    .row
+      = render 'layouts/errors'
+    .row
+      %section.tabs
+        = yield
+    %br
+    = render 'layouts/empty_footer'
