@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
-  layout 'empty', only: [:terima_kasih]
+  layout 'empty', only: [:terima_kasih, :coming]
   def index
     @events = Event.all
 
@@ -164,5 +164,10 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to request.referrer || root_path }
     end
+  end
+
+  def coming
+    @event = Event.find(params[:id])
+    @attendee = Attendee.find(params[:attendee_id])
   end
 end

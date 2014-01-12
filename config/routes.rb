@@ -4,7 +4,9 @@ Mps::Application.routes.draw do
       post 'send_invites' => 'events#send_invites', as: :send_invites_to
       post 'update_attendance' => 'events#update_attendance'
       post 'add_walkins' => 'events#add_walkins'
+      get 'coming' => 'events#coming'
       get 'terima_kasih' => 'events#terima_kasih'
+      get 'track_open/:attendee_id' => 'events#track_open'
       get '/:attendee_id/:rsvp_response' => 'events#update_rsvp', as: :update_rsvp
     end
   end

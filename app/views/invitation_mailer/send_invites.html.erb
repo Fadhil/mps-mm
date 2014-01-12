@@ -100,8 +100,8 @@
     </table> 
     <br/>
     <p>
-      Atau klik di <a href=<%= update_rsvp_event_url(id: @event.id, attendee_id: @attendee.id, rsvp_response: true )%>>sini</a>
-      kalau anda akan menghadiri acara ini.
+      Atau klik di <a href=<%= coming_event_url(id: @event.id, attendee_id: @attendee.id) %>>sini</a> untuk menjawab kehadiran
+      
     <p>
       Kehadiran anda amat dialu-alukan.
     </p>

@@ -1,0 +1,14 @@
+
+
+<br/>
+<table cellspacing="10px" cellpadding="10px" style="border:'none';">
+  <tr> 
+    <td align="center" width="300" height="40" bgcolor="#000091" style="-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; color: #ffffff; display: block;">
+      <a href=<%= update_rsvp_event_url(id: @event.id, attendee_id: @attendee.id, rsvp_response: 1 )%> style="color: #ffffff; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block">Saya akan hadir</a>
+    </td> 
+
+    <td align="center" width="300" height="40" bgcolor="#000091" style="-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; color: #ffffff; display: block;">
+      <a href=<%= update_rsvp_event_url(id: @event.id, attendee_id: @attendee.id, rsvp_response: 0 )%> style="color: #ffffff; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block">Saya tidak akan hadir</a>
+    </td> 
+  </tr> 
+</table> 
