@@ -8,6 +8,14 @@
   }
 }
 
+.btn {
+  a {
+    &:visited {
+      color: white !important;
+    }
+  }
+}
+
 table {
   .buttons {
     
