@@ -18,11 +18,14 @@ polaris_v2_medium.eot: 470439fdf7899cf6b5c4af2c22673f04
 polaris_v2_medium.svg: 882e75e6dab1f43b0a4ba3fc9a98fdde
 polaris_v2_medium.ttf: 418d6270d3f9f63e68a5f2a30d27983f
 polaris_v2_medium.woff: c628c9824a5a9b0602551fc34d3fb720
+pdf-icon.png: 93fb361f166f5bb0ba315e544fc2be60
+pdf-icon1.png: bd532bfff9a76c44d0f1a1249c36bc01
 rails.png: be8732dac73d845ac5b142c8fb5f9fb0
+trackimg.png: 90c88325e0eca1112b1724135a544e95
 application.js: 6abdcfb556b711bd2bd5dd9ad2b9636d
 libs/jquery-1.10.1.min.map: 46e115ad48454a12025d51bf0e243af4
 libs/jquery-2.0.2.min.map: f2fc29449e9df31ff4e5ecf84ee01d3a
-application.css: a11be664081bfb5a429e36e43ba0db52
+application.css: b60d1784f154cc3bdc78dc8124d2da12
 ckeditor/application.js: 127f2d4eda984f6282892a582de558ed
 ckeditor/config.js: fc8229eb284bc3f1d1602c2e1a7b8f9a
 ckeditor/filebrowser/images/gal_add.jpg: 8aa905c95fad3086b6c3fc06bfb5b6d5
