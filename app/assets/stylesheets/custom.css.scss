@@ -50,3 +50,10 @@ table {
   width: 120px;
 }
 
+@media print {
+  .print-disabled {
+    display: none;
+  }
+
+}
+

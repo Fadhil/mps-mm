@@ -4,4 +4,7 @@ class Attendee < ActiveRecord::Base
   has_one :event, through: :attendance_list
   belongs_to :media_profile
   
+  def full_name
+    self.try(:media_profile).try(:name) || self.try(:name)
+  end 
 end

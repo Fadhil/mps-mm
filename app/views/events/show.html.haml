@@ -1,7 +1,8 @@
 .row
   %h2.six.columns= t('.title')
-  .btn.secondary.medium.push_three.three.columns
-    = link_to t('edit_event'), edit_event_path(@event)
+  .print-disabled
+    .btn.secondary.medium.push_three.three.columns
+      = link_to t('edit_event'), edit_event_path(@event)
 
 %table.rounded
 
@@ -33,24 +34,25 @@
 %br
 
 .row
-  .twelve.columns
-    %h3
-      Hantar Jemputan Ke:
-    = form_for '', url: send_invites_to_event_path(@event) do |f|
-      %ul
-        %li.field
-          .picker
-            - select_options = [[t('all_media'),'all_media']] + MediaProfile.media_types.map{ |a| [a,a]}
-            = select_tag 'media_profile_select', options_for_select(select_options)
-        %li
-          %span.btn.medium.primary
-            = f.button t('send')
+  .print-disabled
+    .twelve.columns
+      %h3
+        Hantar Jemputan Ke:
+      = form_for '', url: send_invites_to_event_path(@event) do |f|
+        %ul
+          %li.field
+            .picker
+              - select_options = [[t('all_media'),'all_media']] + MediaProfile.media_types.map{ |a| [a,a]}
+              = select_tag 'media_profile_select', options_for_select(select_options)
+          %li
+            %span.btn.medium.primary
+              = f.button t('send')
 
 %br
 
-
-%span.medium.btn.primary
-  = link_to t('back'), events_path
+.print-disabled
+  %span.medium.btn.primary
+    = link_to t('back'), events_path
 
 %br
 %br
@@ -60,7 +62,7 @@
       .row
         .ten.columns
           %h5= t('.attendance_list')
-        .two.columns
+        .two.columns.print-disabled
           %span.pretty.medium.btn.info.print-disabled
             = link_to t('print'), '#', onClick: "print();"
       %hr.divider
@@ -109,17 +111,17 @@
                     - else
                       %ul.print-disabled
                         %li
-                          %small
+                          %p
                             = link_to t('present'), update_attendance_event_path(media_profile_id: values[:media_profile_id], attendee_id: values[:attendee_id], event_id: values[:event_id], attended: true, attendance_status: 'present'), method: :post
                         %li
-                          %small
+                          %p
                             = link_to t('not_present'), update_attendance_event_path(media_profile_id: values[:media_profile_id], attendee_id: values[:attendee_id], event_id: values[:event_id], attended: false, attendance_status: 'not_present'), method: :post
                         /
                           %li
-                            %small
+                            %p
                               = link_to t('cannot_attend'), update_attendance_event_path(media_profile_id: values[:media_profile_id], attendee_id: values[:attendee_id], event_id: values[:event_id], attended: false, attendance_status: 'cannot_attend'), method: :post
                
-  .row
+  .row.print-disabled
     .fourteen.columns
       = nested_form_for @event.attendance_list, url: add_walkins_event_path(@event), method: :post do |f|
         = f.fields_for :walkins do |a|
