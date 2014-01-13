@@ -18,9 +18,15 @@
 
 table {
   .buttons {
-    
+
     a {
       width: 150px;
+    }
+    .padam-small{
+      a {
+        width: 80px;
+        font-size: 0.7em;
+      }
     }
   }
   .profile-details {
