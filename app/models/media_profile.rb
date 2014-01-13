@@ -9,16 +9,19 @@ class MediaProfile < ActiveRecord::Base
   validates :name, presence: true
   validates :company_name, presence: true
 
-  def self.titles
-    ['Cik','Encik', 'Tuan', 'Puan', 'Datuk', 'Dato', 'Datin', 'Tan Sri']
+  class << self
+    def titles
+      ['Cik','Encik', 'Tuan', 'Puan', 'Datuk', 'Dato', 'Datin', 'Tan Sri']
+    end
+
+    def media_types
+      ['Media Cetak', 'Media Elektronik', 'Dalaman - Ahli Majlis MPS', 'Dalaman - Pengarah Jabatan MPS']
+    end
+
+    def filter_by_type(media_type)
+      self.where(media_type: media_type)
+    end
   end
 
-  def self.media_types
-    ['Media Cetak', 'Media Elektronik', 'Dalaman - Ahli Majlis MPS', 'Dalaman - Pengarah Jabatan MPS']
-  end
-
-  def self.filter_by_type(media_type)
-    self.where(media_type: media_type)
-  end
 
 end
