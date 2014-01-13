@@ -28,10 +28,11 @@ bm:
   name_title: 'Gelaran'
   designation: 'Jawatan'
   edit_media_profile: 'Kemas Kini Profil Media'
-  letter: 'surat'
+  letter: 'lampiran'
   new_media_profile: 'Profil Media Baru'
   edit_event: 'Kemas Kini Acara'
   new_event: 'Acara Baru'
+  event_name: 'Nama Acara'
   email: 'Email'
   media_type: 'Jenis Media'
   company_name: 'Nama Syarikat'
@@ -91,8 +92,8 @@ bm:
         name: 'Nama'
         venue: 'Tempat'
         date: 'Tarikh'
-        agenda_details: 'Maklumat Agenda'
-        letter: 'Surat'
+        agenda_details: 'Aturcara Majlis'
+        letter: 'Lampiran'
     errors:
       models:
         media_profile:

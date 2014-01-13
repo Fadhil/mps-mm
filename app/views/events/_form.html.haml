@@ -5,7 +5,7 @@
         %table.table.strip.show-table
           %tbody
             %tr
-              %th= f.label t('name')
+              %th= f.label t('event_name')
               %td= f.text_field :name, class: 'text input'
             %tr
 
@@ -13,21 +13,8 @@
               %td= f.text_field :date, class: 'text input datepicker', value: ( @event.date.try(:strftime,'%d-%m-%Y') )#unless @event.new_record? )
             %tr
               %th= f.label t('time')
-              %td= f.time_select :time
-            %tr
-              %th= f.label t('agenda_details')
-              %td
-                %span= f.file_field :agenda_details
-                - unless @event.new_record?
-                  %span= @event.agenda_details.blank? ? '' : image_tag(@event.agenda_details.thumb)
-              
-            %tr
-              %th= f.label t('letter')
-              %td
-                %span= f.file_field :letter
-                - unless @event.new_record?
-                  %span= @event.letter.blank? ? '' : image_tag(@event.letter.thumb)
-             
+              %td= f.time_select :time,{ampm: true, default: Time.parse("09:00")}
+
             %tr
               %th= f.label t('venue')
               %td= f.text_field :venue, class: 'text input'
@@ -37,6 +24,29 @@
             %tr
               %th= f.label t('organizer')
               %td= f.text_field :organizer, class: 'text input'
+            %tr
+              %th= f.label t('agenda_details')
+              %td
+                %span= f.file_field :agenda_details
+                - unless @event.new_record?
+                  %span= display_uploaded_file(@event.agenda_details)
+                  .fields
+                    %label.checkbox{for: 'check1'}
+                      = f.check_box :remove_agenda_details, id: 'check1'
+                      %span
+                      Padam?
+              
+            %tr
+              %th= f.label t('letter')
+              %td
+                %span= f.file_field :letter
+                - unless @event.new_record?
+                  %span= display_uploaded_file(@event.letter)
+                  .fields
+                    %label.checkbox{for: 'check2'}
+                      = f.check_box :remove_letter, id: 'check2'
+                      %span
+                      Padam?
     .row
       %span.btn.primary.medium
         = f.submit t('save')

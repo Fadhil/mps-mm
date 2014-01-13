@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   # GET /events.json
   layout 'empty', only: [:terima_kasih, :coming]
   def index
-    @events = Event.all
+    @events = Event.order('date desc')
 
     respond_to do |format|
       format.html # index.html.erb
