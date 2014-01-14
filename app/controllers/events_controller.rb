@@ -128,12 +128,20 @@ class EventsController < ApplicationController
   def update_rsvp
     attendee = Attendee.find(params[:attendee_id])
     rsvp_response = params[:rsvp_response]
-    attendee.rsvp = rsvp_response
+    already_responded = true
+    if attendee.rsvp.nil?
+      attendee.rsvp = rsvp_response
+      already_responded = false
+    end
 
     respond_to do |format|
-      if attendee.save 
-        #flash[:notice] = "Attendee: #{params[:attendee_id]}, RSVP: #{params[:rsvp_response]}"
-        format.html { redirect_to terima_kasih_event_path(rsvp_response: rsvp_response) }
+      if already_responded
+        format.html { redirect_to already_responded_event_path }
+      else
+        if attendee.save 
+          #flash[:notice] = "Attendee: #{params[:attendee_id]}, RSVP: #{params[:rsvp_response]}"
+          format.html { redirect_to terima_kasih_event_path(rsvp_response: rsvp_response) }
+        end
       end
     end
   end
@@ -145,6 +153,9 @@ class EventsController < ApplicationController
     @message = (rsvp_response.to_i == 1) ? coming_message : not_coming_message
   end
 
+  def already_responded
+
+  end
   def track_open
     url = 'http://farm1.staticflickr.com/54/120671629_8b7514a186_o.jpg'
     the_host = request.port.blank? ? request.host : "#{request.host}:#{request.port}"
