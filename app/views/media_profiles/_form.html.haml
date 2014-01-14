@@ -10,7 +10,7 @@
                 .picker= f.select :title, options_for_select(MediaProfile.titles)
             %tr
               %th= f.label t('name')
-              %td= f.text_field :name, :class => 'text input'
+              %td= f.text_field :name, :class => 'text input', placeholder: t('name')
             %tr
               %th= f.label t('designation')
               %td= f.text_field :designation, :class => 'text input'
@@ -21,6 +21,18 @@
             %tr
               %th= f.label t('company_name')
               %td= f.text_field :company_name, class: 'text input'
+            %tr
+              %th= f.label t('media_name')
+              %td= f.text_field :media_name, class: 'text input'
+            %tr
+              %th= f.label t('company_address')
+              = f.fields_for :addresses do |a|
+                %td.address
+                  = a.text_field :line1, placeholder: t('address.line1'),class: 'text input'
+                  %br
+                  = a.text_field :line2, placeholder: t('address.line2'), class: 'text input xmedium'
+                  %br
+                  = a.text_field :postcode, placeholder: t('address.postcode'), class: 'text input xnarrow', maxlength: 5
             %tr
               %th= f.label t('email')
               %td= f.text_field :email, class: 'text input'

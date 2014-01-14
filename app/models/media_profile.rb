@@ -1,6 +1,6 @@
 class MediaProfile < ActiveRecord::Base
   attr_accessible :company_name, :designation, :email, :media_type, :name, :office_phone, :phone, :title
-  attr_accessible :personal_email
+  attr_accessible :personal_email, :media_name
 
   has_one :address, as: :addressable, dependent: :destroy
   has_many :attendances, class_name: Attendee, dependent: :destroy
@@ -16,7 +16,7 @@ class MediaProfile < ActiveRecord::Base
     end
 
     def media_types
-      ['Media Cetak', 'Media Elektronik', 'Dalaman - Ahli Majlis MPS', 'Dalaman - Pengarah Jabatan MPS']
+      ['Media Cetak', 'Media Elektronik', 'MPS - Ahli Majlis', 'MPS - Pengarah Jabatan']
     end
 
     def filter_by_type(media_type)

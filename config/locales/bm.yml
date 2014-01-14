@@ -8,6 +8,12 @@ bm:
     - :day
     - :month
     - :year
+  address:
+    line1: 'Baris pertama'
+    line2: 'Baris kedua'
+    postcode: 'Poskod'
+    city: 'Bandar'
+    state: 'Negeri'
     
   hello: "Hello world"
   are_you_sure: 'Anda Pasti?'
@@ -33,12 +39,14 @@ bm:
   edit_event: 'Kemas Kini Acara'
   new_event: 'Acara Baru'
   event_name: 'Nama Acara'
-  email: 'Email'
+  email: 'Email Rasmi'
   personal_email: 'Email Peribadi'
   media_type: 'Jenis Media'
+  media_name: 'Nama Media'
   company_name: 'Nama Syarikat'
-  office_phone: 'No Telefon Ofis'
-  phone: 'No Telefon'
+  company_address: 'Alamat Syarikat'
+  office_phone: 'No. Telefon Pejabat'
+  phone: 'No. Telefon Bimbit'
   read_email: 'Email Dibaca?'
   rsvp_response: 'Jawapan RSVP'
   present: 'Hadir'
