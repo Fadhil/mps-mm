@@ -1,5 +1,6 @@
 class MediaProfile < ActiveRecord::Base
   attr_accessible :company_name, :designation, :email, :media_type, :name, :office_phone, :phone, :title
+  attr_accessible :personal_email
 
   has_one :address, as: :addressable, dependent: :destroy
   has_many :attendances, class_name: Attendee, dependent: :destroy

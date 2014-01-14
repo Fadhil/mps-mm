@@ -6,6 +6,24 @@ class InvitationMailer < ActionMailer::Base
     @media_profile = media_profile
     @event = event
     @attendee = attendee
-    mail(to: @media_profile.email, subject: "Anda dijemput ke acara #{@event.name}")
+    emails = []
+    emails << @media_profile.email
+    emails << @media_profile.personal_email unless @media_profile.personal_email.blank?
+    letter_extension = get_file_extension(@event.letter)
+    agenda_extension = get_file_extension(@event.agenda_details)
+    if Rails.env.development?
+      attachments["lampiran.#{letter_extension.to_s}"] = File.read("#{Rails.root}/public#{@event.letter}") unless @event.letter.blank?
+      attachments["agenda.#{agenda_extension.to_s}"] = File.read("#{Rails.root}/public#{@event.agenda_details}") unless @event.agenda_details.blank?
+    elsif Rails.env.production?
+      attachments["letter.#{letter_extension.to_s}"] = open(@event.letter).read unless @event.letter.blank?
+      attachments["agenda.#{agenda_extension.to_s}"] = open(@event.agenda_details).read unless @event.agenda_details.blank?
+    end
+    mail(to: emails, subject: "Anda dijemput ke acara #{@event.name}")
+
+  end
+
+  def get_file_extension(file)
+    extension = file.to_s.split('.').last.try(:downcase).try(:split,'?').try(:first)
+    extension
   end
 end

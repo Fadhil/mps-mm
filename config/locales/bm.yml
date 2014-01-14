@@ -28,12 +28,13 @@ bm:
   name_title: 'Gelaran'
   designation: 'Jawatan'
   edit_media_profile: 'Kemas Kini Profil Media'
-  letter: 'lampiran'
+  letter: 'Lampiran'
   new_media_profile: 'Profil Media Baru'
   edit_event: 'Kemas Kini Acara'
   new_event: 'Acara Baru'
   event_name: 'Nama Acara'
   email: 'Email'
+  personal_email: 'Email Peribadi'
   media_type: 'Jenis Media'
   company_name: 'Nama Syarikat'
   office_phone: 'No Telefon Ofis'
@@ -74,6 +75,8 @@ bm:
     show:
       title: 'Maklumat Acara'
       attendance_list: 'Senarai Kedatangan'
+    already_responded:
+      message: 'Anda sudah pernah membalas RSVP ini.'
 
   layouts:
     header:

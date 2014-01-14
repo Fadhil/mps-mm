@@ -17,6 +17,7 @@
     <br/>
     <table>
       <tbody>
+        <% unless @event.name.blank? %>
         <tr>
           <td>
             <strong>
@@ -27,6 +28,8 @@
             <%= @event.name %>
           </td>
         </tr>
+        <% end %>
+        <% unless @event.date.blank? %>
         <tr>
           <td>
             <strong>
@@ -37,6 +40,8 @@
             <%= @event.date.strftime('%d-%m-%Y') %>
           </td>
         </tr>
+        <% end %>
+        <% unless @event.time.blank? %>
         <tr>
           <td>
             <strong>
@@ -47,6 +52,8 @@
             <%= @event.time.to_s(:time) %>
           </td>
         </tr>
+        <% end %>
+        <% unless @event.venue.blank? %>
         <tr>
           <td>
             <strong>
@@ -57,29 +64,6 @@
             <%= @event.venue %>
           </td>
         </tr>
-        <% if !@event.agenda_details.blank? %>
-          <tr>
-            <td>
-              <strong>
-                <%= t('agenda_details') %>
-              </strong>
-            </td>
-            <td>
-              <%= image_tag(@event.agenda_details) %>
-            </td>
-          </tr>
-        <% end %>
-        <% if !@event.letter.blank? %>
-          <tr>
-            <td>
-              <strong>
-                <%= t('letter') %>
-              </strong>
-            </td>
-            <td>
-              <%= image_tag(@event.letter) %>
-            </td>
-          </tr>
         <% end %>
       </tbody>
     </table>
