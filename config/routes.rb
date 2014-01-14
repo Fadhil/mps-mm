@@ -6,6 +6,7 @@ Mps::Application.routes.draw do
       post 'add_walkins' => 'events#add_walkins'
       get 'coming' => 'events#coming'
       get 'terima_kasih' => 'events#terima_kasih'
+      get 'already_responded' => 'events#already_responded'
       get 'track_open/:attendee_id' => 'events#track_open'
       get '/:attendee_id/:rsvp_response' => 'events#update_rsvp', as: :update_rsvp
     end
