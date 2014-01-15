@@ -35,9 +35,9 @@ class MediaProfile < ActiveRecord::Base
                                   phone like :search OR
                                   email like :search OR
                                   personal_email like :search OR
-                                  media_name like :search', { search: "%#{terms}%"}])
+                                  media_name like :search', { search: "%#{terms}%"}]).order('name asc')
       else
-        find(:all)
+        find(:all).order('name asc')
       end
     end
   end
