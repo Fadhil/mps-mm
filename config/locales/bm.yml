@@ -36,6 +36,8 @@ bm:
   name_title: 'Gelaran'
   designation: 'Jawatan'
   edit_media_profile: 'Kemas Kini Profil Media'
+  media_profile_list: 'Profil Media'
+  event_list: 'Senarai Acara'
   enter_search_terms: 'Masukkan carian anda...'
   letter: 'Lampiran'
   new_media_profile: 'Profil Media Baru'
@@ -130,4 +132,10 @@ bm:
     messages:
       extension_white_list_error: ": Sila pastikan anda muat naik jenis fail yang betul"
 
+  named_routes_path:
+    media_profiles: 'profil_media'
+    welcome: 'selamat_datang'
 
+  resources: 
+    media_profiles: 'profil_media'
+    events: 'acara'

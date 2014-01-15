@@ -42,6 +42,7 @@ group :production do
 end
 
 gem 'rails-i18n'
+gem 'i18n_routing'
 gem 'delayed_job_active_record'
 gem 'daemons'
 

@@ -1,28 +1,30 @@
 Mps::Application.routes.draw do
-  
-  get 'city_dropdown' => 'application#city_dropdown', as: :city_dropdown
-  resources :events do
-    member do
-      post '' => 'events#show'
-      post 'send_invites' => 'events#send_invites', as: :send_invites_to
-      post 'update_attendance' => 'events#update_attendance'
-      post 'add_walkins' => 'events#add_walkins'
-      get 'coming' => 'events#coming'
-      match 'edit_recipients' => 'events#edit_recipients'
-      get 'terima_kasih' => 'events#terima_kasih'
-      get 'already_responded' => 'events#already_responded'
-      get 'track_open/:attendee_id' => 'events#track_open'
-      get '/:attendee_id/:rsvp_response' => 'events#update_rsvp', as: :update_rsvp
+  localized do
+    get '/welcome' => 'application#welcome'
+    get 'city_dropdown' => 'application#city_dropdown', as: :city_dropdown
+    resources :events do
+      member do
+        post '' => 'events#show'
+        post 'send_invites' => 'events#send_invites', as: :send_invites_to
+        post 'update_attendance' => 'events#update_attendance'
+        post 'add_walkins' => 'events#add_walkins'
+        get 'coming' => 'events#coming'
+        match 'edit_recipients' => 'events#edit_recipients'
+        get 'terima_kasih' => 'events#terima_kasih'
+        get 'already_responded' => 'events#already_responded'
+        get 'track_open/:attendee_id' => 'events#track_open'
+        get '/:attendee_id/:rsvp_response' => 'events#update_rsvp', as: :update_rsvp
+      end
     end
-  end
 
-  resources :media_profiles do
-    collection do 
-      post 'filter' => 'media_profiles#filter'
+    resources :media_profiles do
+      collection do 
+        post 'filter' => 'media_profiles#filter'
+      end
     end
-  end
 
-  root to: 'media_profiles#index'
+    root to: 'application#welcome', as: :welcome
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
