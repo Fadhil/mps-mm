@@ -174,12 +174,12 @@ class EventsController < ApplicationController
     url = 'http://farm1.staticflickr.com/54/120671629_8b7514a186_o.jpg'
     the_host = request.port.blank? ? request.host : "#{request.host}:#{request.port}"
     local_url = request.protocol + the_host + '/assets/images/rails.png'
-    image = open(local_url).read
+    image = open(url).read
     logger.info local_url
     response.headers['Cache-Control'] = "public, max-age=#{12.hours.to_i}"
     response.headers['Content-Type'] = 'image/jpeg'
     response.headers['Content-Disposition'] = 'inline'
-    render text: image
+    send_data open(url, "rb") { |f| f.read }
   end
 
   def add_walkins
