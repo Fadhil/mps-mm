@@ -18,7 +18,7 @@ class MediaProfilesController < ApplicationController
     if @media_type.to_sym == :all_media
       @media_profiles
     else
-      @media_profiles = @media_profiles.select{ |x| x.media_type == @media_type}
+      @media_profiles = @media_profiles.where(media_type: @media_type)
     end
 
     respond_to do |format|
