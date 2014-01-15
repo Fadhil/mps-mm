@@ -90,7 +90,6 @@ class EventsController < ApplicationController
     media_type = params[:media_profile_select]
     if params[:button] == :send.to_s
       if params[:selected_media_ids]
-        Rails.logger.info "The media ids: #{params[:selected_media_ids]}"
         selected_media_ids = params[:selected_media_ids]
         selected_media = MediaProfile.where('id in (?)',selected_media_ids)
       else
