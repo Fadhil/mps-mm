@@ -175,11 +175,14 @@ class EventsController < ApplicationController
     the_host = request.port.blank? ? request.host : "#{request.host}:#{request.port}"
     local_url = request.protocol + the_host + '/assets/images/rails.png'
     image = open(url).read
-    logger.info local_url
+    logger.info "actually in this sucker"
     response.headers['Cache-Control'] = "public, max-age=#{12.hours.to_i}"
-    response.headers['Content-Type'] = 'image/jpeg'
+    response.headers['Content-Type'] = 'image/png'
     response.headers['Content-Disposition'] = 'inline'
-    send_data open(url, "rb") { |f| f.read }
+    logger.info Rails.root
+    Walkin.create(name: 'booyah', email: 'canornot.com?')
+    send_file "#{Rails.root}/public/assets/images/trackimg.png"
+    #send_data open(url, "rb") { |f| f.read }
   end
 
   def add_walkins
