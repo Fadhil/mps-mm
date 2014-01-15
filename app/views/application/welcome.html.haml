@@ -1,0 +1,19 @@
+.row.hello
+
+  .centered.eight.columns
+    .welcome-hero
+      .two.columns
+        = image_tag 'logo.png'
+      .ten.columns
+        %h2
+          %strong
+            Sistem Jemputan Media
+  .centered.eight.columns
+    .button-box
+      .six.columns.minibox
+        %span.btn.medium.primary.pretty
+          = link_to t('media_profile_list'), media_profiles_path
+      .six.columns.minibox
+        %span.btn.medium.secondary.pretty
+          = link_to t('event_list'), events_path
+     
