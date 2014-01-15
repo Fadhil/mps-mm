@@ -115,7 +115,7 @@
                 
                 - unless key == 'walkin'
                   %td
-                    NIL
+                    = display_email_read_status(values[:email_read])
                   %td
                     = display_rsvp_status(values[:rsvp_response]) 
 

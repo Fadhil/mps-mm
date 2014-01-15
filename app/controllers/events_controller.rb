@@ -171,17 +171,11 @@ class EventsController < ApplicationController
 
   end
   def track_open
-    url = 'http://farm1.staticflickr.com/54/120671629_8b7514a186_o.jpg'
-    the_host = request.port.blank? ? request.host : "#{request.host}:#{request.port}"
-    local_url = request.protocol + the_host + '/assets/images/rails.png'
-    image = open(url).read
-    logger.info "actually in this sucker"
-    response.headers['Cache-Control'] = "public, max-age=#{12.hours.to_i}"
-    response.headers['Content-Type'] = 'image/png'
-    response.headers['Content-Disposition'] = 'inline'
-    logger.info Rails.root
-    Walkin.create(name: 'booyah', email: 'canornot.com?')
-    send_file "#{Rails.root}/public/assets/images/trackimg.png"
+    @attendee = Attendee.find(params[:attendee_id])
+    @attendee.email_read = true
+    @attendee.save
+    logger.info "actually in this sucker #{params[:attendee_id]}"
+    send_file "#{Rails.root}/public/assets/images/trackimgwhite.png", :type => 'image/png', :disposition => 'inline' 
     #send_data open(url, "rb") { |f| f.read }
   end
 

@@ -21,4 +21,15 @@ module EventsHelper
       'Tidak Akan Hadir'
     end
   end
+
+  def display_email_read_status(email_read)
+    case email_read
+    when nil
+      'Belum Dibuka'
+    when false
+      'Belum Dibuka'
+    when true
+      'Sudah Dibuka'
+    end
+  end
 end

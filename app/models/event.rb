@@ -41,6 +41,7 @@ class Event < ActiveRecord::Base
       attendee_details[:company_name] = a.get_company_name
       attendee_details[:attendance_status] = a.try(:attendance_status)
       attendee_details[:rsvp_response] = a.try(:rsvp)
+      attendee_details[:email_read] = a.try(:email_read)
       attendee_details[:event_id] = self.id
       attendees[media_type] << attendee_details
      

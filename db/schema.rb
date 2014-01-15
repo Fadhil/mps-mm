@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140115153404) do
+ActiveRecord::Schema.define(:version => 20140115195732) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20140115153404) do
     t.string   "type"
     t.boolean  "rsvp"
     t.string   "media_type"
+    t.boolean  "email_read"
   end
 
   create_table "cities", :force => true do |t|
