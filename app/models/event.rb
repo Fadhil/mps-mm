@@ -29,16 +29,16 @@ class Event < ActiveRecord::Base
 
   def attendees_list
     attendees = {}
-    self.attendance_list.attendees.sort{ |x,y| y.full_name <=> x.full_name}.each do |a|
-      media_type = a.try(:media_profile).try(:media_type) || 'walkin'
+    self.attendance_list.attendees.each do |a|
+      media_type = a.try(:media_profile).try(:media_type) || a.try(:media_type)
       attendees[media_type] = [] unless attendees[media_type]
       attendee_details = {}
-      attendee_details[:full_name] = "#{a.try(:full_name)}".strip
       attendee_details[:media_profile_id] = a.try(:media_profile).try(:id)
       attendee_details[:attendee_id] = a.id
-      attendee_details[:full_name] = "#{a.try(:media_profile).try(:title)} #{a.media_profile.try(:name)}".strip
-      attendee_details[:email] = a.try(:media_profile).try(:email)
-      attendee_details[:company_name] = a.try(:media_profile).try(:company_name)
+      attendee_details[:name] = a.full_name
+      attendee_details[:full_name] = "#{a.try(:media_profile).try(:title)} #{a.try(:full_name)}".strip
+      attendee_details[:email] = a.get_email
+      attendee_details[:company_name] = a.get_company_name
       attendee_details[:attendance_status] = a.try(:attendance_status)
       attendee_details[:rsvp_response] = a.try(:rsvp)
       attendee_details[:event_id] = self.id

@@ -7,4 +7,12 @@ class Attendee < ActiveRecord::Base
   def full_name
     self.try(:media_profile).try(:name) || self.try(:name)
   end 
+
+  def get_email
+    self.try(:media_profile).try(:email) || self.try(:email)
+  end
+
+  def get_company_name
+    self.try(:media_profile).try(:company_name) || self.try(:company_name)
+  end
 end
