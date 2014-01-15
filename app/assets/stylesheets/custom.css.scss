@@ -35,6 +35,10 @@ table {
       }
     }
   }
+
+  .rcpt-checkbox{
+    height: 25px;
+  }
   .profile-details {
     li {
       float: left;
@@ -84,4 +88,8 @@ table {
     float: left;
     margin-left: 5px;
   }
+}
+
+.event-back {
+  padding-left: 20px;
 }

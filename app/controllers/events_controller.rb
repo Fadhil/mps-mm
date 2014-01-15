@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @selected_media_ids = params[:selected_media_ids]
     @event = Event.find(params[:id])
 
     respond_to do |format|
@@ -86,21 +87,35 @@ class EventsController < ApplicationController
 
   def send_invites
     @event = Event.find(params[:id])
-    selected_media_type = params[:media_profile_select]
-    if selected_media_type == 'all_media'
-      selected_media = MediaProfile.all
-    else
-      selected_media = MediaProfile.where(media_type: selected_media_type)
+    media_type = params[:media_profile_select]
+    if params[:button] == :send.to_s
+      if params[:selected_media_ids]
+        Rails.logger.info "The media ids: #{params[:selected_media_ids]}"
+        selected_media_ids = params[:selected_media_ids]
+        selected_media = MediaProfile.where('id in (?)',selected_media_ids)
+      else
+        selected_media = MediaProfile.filter_by_type(media_type)
+      end
+    elsif params[:button] == :send_ids.to_s
+      selected_media = MediaProfile.first
     end
+
     flash[:notice]="Berjaya menghantar jemputan kepada #{selected_media.count} orang."
     selected_media.each do |m|
       #InvitationMailer.delay(:run_at => 1.minutes.from_now ).send_invites(m, @event)
       attendee = @event.add_participant(m)
-      InvitationMailer.send_invites(m,@event, attendee).deliver
+      #InvitationMailer.send_invites(m,@event, attendee).deliver
       
     end
     redirect_to @event
 
+  end
+
+  def edit_recipients
+    @event = Event.find(params[:id])
+    media_type = params[:media_profile_select]
+    @selected_media = MediaProfile.filter_by_type(media_type)
+    #@selected_media = params[:selected_media]
   end
 
   def update_attendance

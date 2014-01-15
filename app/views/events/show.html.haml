@@ -38,21 +38,36 @@
     .twelve.columns
       %h3
         Hantar Jemputan Ke:
+
       = form_for '', url: send_invites_to_event_path(@event) do |f|
-        %ul
-          %li.field
-            .picker
-              - select_options = [[t('all_media'),'all_media']] + MediaProfile.media_types.map{ |a| [a,a]}
-              = select_tag 'media_profile_select', options_for_select(select_options)
-          %li
-            %span.btn.medium.primary
-              = f.button t('send')
 
-%br
+        .four.columns
+          %ul
+            %li.field
+              .picker
+                - select_options = [[t('all_media'),'all_media']] + MediaProfile.media_types.map{ |a| [a,a]}
+                = select_tag 'media_profile_select', options_for_select(select_options), prompt: t('.choose_media_type')
+            -if @selected_media_ids
+              %li
+                =t('.mail_will_be_sent_to', number_of_emails: @selected_media_ids.count)
+                - @selected_media_ids.each do |s|
+                  = f.hidden_field :selected_media_ids, name: 'selected_media_ids[]', value: s.to_i
 
-.print-disabled
-  %span.medium.btn.primary
-    = link_to t('back'), events_path
+            %li
+              %span.btn.medium.primary
+                = f.button t('send'),value: :send
+        .six.columns.edit-recipients.hide
+          %ul
+            %li
+              %span.btn.medium.primary
+                = f.button t('edit_recipients'), value: :edit_recipients, formaction: edit_recipients_event_path(@event)
+              
+.row
+  
+  .print-disabled
+    .event-back
+      %span.medium.btn.primary
+        = link_to t('back'), events_path
 
 %br
 %br

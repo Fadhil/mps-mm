@@ -1,0 +1,30 @@
+.row
+  %h3
+    = t('edit_recipients')
+
+  = form_for '', url: event_path(@event) do |f|
+    %table.rounded
+      %thead
+        %tr
+          %th
+            = t('number')
+          %th= t('name')
+          %th= t('email')
+          %th= t('send') + '?'
+      %tbody
+      
+        - @selected_media.each_with_index do |media_profile, index|
+          %tr
+            %td= index + 1
+            %td= "#{media_profile.try(:title)} #{media_profile.name}".strip#, media_profile, class: 'show-link'
+            %td= media_profile.email
+            %td
+              %ul
+                %li.field.rcpt-checkbox
+                  %label.checkbox{for: "check#{media_profile.id}", value: media_profile.id}
+                    %input{name: 'selected_media_ids[]', value: media_profile.id.to_i, id: "check#{media_profile.id}", checked: 'checked', class: 'checkbox', type: 'checkbox'}
+                 
+                    %span
+    %span.btn.medium.primary
+      = f.button t('send'), value: 'send_ids'
+                    

@@ -20,7 +20,11 @@ class MediaProfile < ActiveRecord::Base
     end
 
     def filter_by_type(media_type)
-      self.where(media_type: media_type)
+      if media_type.to_sym == :all_media
+        self.order('name asc')
+      else
+        self.where(media_type: media_type).order('name asc')
+      end
     end
 
     def search(terms)

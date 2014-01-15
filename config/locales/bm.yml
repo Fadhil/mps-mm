@@ -19,11 +19,13 @@ bm:
   are_you_sure: 'Anda Pasti?'
   all_media: 'Semua Media'
   add_attendee: 'Tambah Peserta'
+  edit_recipients: 'Kemas Kini Senarai Penerima'
   agenda_details: 'Aturcara Majlis'
   back: 'Kembali'
   date: 'Tarikh'
   details: 'Maklumat'
   time: 'Masa'
+  number: 'Bil.'
   venue: 'Tempat'
   official: 'Perasmi'
   organizer: 'Penganjur'
@@ -84,6 +86,8 @@ bm:
     show:
       title: 'Maklumat Acara'
       attendance_list: 'Senarai Kedatangan'
+      choose_media_type: 'Pilih Jenis Media'
+      mail_will_be_sent_to: 'Email akan dihantar kepada %{number_of_emails} orang'
     already_responded:
       message: 'Anda sudah pernah membalas RSVP ini.'
 
