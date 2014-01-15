@@ -1,4 +1,6 @@
 Mps::Application.routes.draw do
+  
+  get 'city_dropdown' => 'application#city_dropdown', as: :city_dropdown
   resources :events do
     member do
       post 'send_invites' => 'events#send_invites', as: :send_invites_to

@@ -39,6 +39,8 @@ class MediaProfilesController < ApplicationController
   # GET /media_profiles/new.json
   def new
     @media_profile = MediaProfile.new
+    @media_profile.build_address
+    @media_profile.address.city = City.where(name: 'Kuala Lumpur').first #default to KL
 
     respond_to do |format|
       format.html # new.html.erb
@@ -54,7 +56,12 @@ class MediaProfilesController < ApplicationController
   # POST /media_profiles
   # POST /media_profiles.json
   def create
+    if params[:media_profile][:address_attributes]
+      params[:media_profile][:address_attributes].delete :city_attributes
+    end
     @media_profile = MediaProfile.new(params[:media_profile])
+    @media_profile.address.city = City.find(params[:city])
+    #@media_profile.build_address
 
     respond_to do |format|
       if @media_profile.save
@@ -71,7 +78,11 @@ class MediaProfilesController < ApplicationController
   # PUT /media_profiles/1
   # PUT /media_profiles/1.json
   def update
+    if params[:media_profile][:address_attributes]
+      params[:media_profile][:address_attributes].delete :city_attributes
+    end
     @media_profile = MediaProfile.find(params[:id])
+    @media_profile.address.city = City.find(params[:city])
 
     respond_to do |format|
       if @media_profile.update_attributes(params[:media_profile])

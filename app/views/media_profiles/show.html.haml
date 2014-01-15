@@ -27,6 +27,9 @@
       %td=t('media_name')
       %td= @media_profile.media_name
     %tr
+      %td=t('company_address')
+      %td= display_address(@media_profile.address)
+    %tr
       %td=t('email')
       %td= @media_profile.email
     %tr

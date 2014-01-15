@@ -13,38 +13,55 @@
               %td= f.text_field :name, :class => 'text input', placeholder: t('name')
             %tr
               %th= f.label t('designation')
-              %td= f.text_field :designation, :class => 'text input'
+              %td= f.text_field :designation, :class => 'text input', placeholder: t('designation')
             %tr
               %th= f.label t('media_type')
               %td
                 .picker= f.select :media_type, options_for_select(MediaProfile.media_types)
             %tr
               %th= f.label t('company_name')
-              %td= f.text_field :company_name, class: 'text input'
+              %td= f.text_field :company_name, class: 'text input', placeholder: t('company_name')
             %tr
               %th= f.label t('media_name')
-              %td= f.text_field :media_name, class: 'text input'
+              %td= f.text_field :media_name, class: 'text input', placeholder: t('media_name')
             %tr
               %th= f.label t('company_address')
-              = f.fields_for :addresses do |a|
+              = f.fields_for :address do |a|
                 %td.address
                   = a.text_field :line1, placeholder: t('address.line1'),class: 'text input'
                   %br
                   = a.text_field :line2, placeholder: t('address.line2'), class: 'text input xmedium'
                   %br
                   = a.text_field :postcode, placeholder: t('address.postcode'), class: 'text input xnarrow', maxlength: 5
+                  %br
+              
+                  = a.fields_for :city do |c|
+                    - if c.object.id
+                      - @cities = City.where(state_name: c.object.state_name).order(:name)
+                    - else
+                      - @cities = City.where(state_name: 'Selangor').order(:name)
+                    .picker
+                      = select_tag "city", options_for_select(@cities.map{ |a| [a.name, a.id]}, selected: c.object.try(:id) ), :include_blank => true
+            
+                  = a.fields_for :city do |c|
+                    - if c.object.id
+                      - selected_state = c.object.try(:state_name)
+                    - else
+                      - selected_state = 'Selangor'
+                    .picker
+                      = select_tag "state", options_for_select(City.order(:state_name).map{ |a| [a.state_name]}.uniq, selected: selected_state), :include_blank => true
             %tr
               %th= f.label t('email')
-              %td= f.text_field :email, class: 'text input'
+              %td= f.text_field :email, class: 'text input', placeholder: 'email_rasmi@domain_syarikat.com'
             %tr
               %th= f.label t('personal_email')
-              %td= f.text_field :personal_email, class: 'text input'
+              %td= f.text_field :personal_email, class: 'text input', placeholder: 'email_peribadi@domain.com'
             %tr
               %th= f.label t('office_phone')
-              %td= f.text_field :office_phone, class: 'text input'
+              %td= f.text_field :office_phone, class: 'text input', placeholder: '0378806449'
             %tr
               %th= f.label t('phone')
-              %td= f.text_field :phone, class: 'text input'
+              %td= f.text_field :phone, class: 'text input', placeholder: '0123456789'
     .row            
       .actions
         %span.medium.btn.primary
