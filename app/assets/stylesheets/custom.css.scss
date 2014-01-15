@@ -1,9 +1,18 @@
 body {
-  .hello {
+  .wrapper {
     min-height: 550px;
   }
   .welcome-hero {
     margin-top: 10%;
+  }
+
+  .sign-in {
+    margin-top: 120px;
+    border: none;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px gray;
+    
   }
   &.welcome {
    

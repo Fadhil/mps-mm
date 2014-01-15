@@ -1,5 +1,8 @@
 Mps::Application.routes.draw do
+
+
   localized do
+    devise_for :users, controllers: { sessions: 'mydevise/sessions' }
     get '/welcome' => 'application#welcome'
     get 'city_dropdown' => 'application#city_dropdown', as: :city_dropdown
     resources :events do

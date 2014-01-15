@@ -43,6 +43,9 @@ end
 
 gem 'rails-i18n'
 gem 'i18n_routing'
+
+gem 'devise', '3.0.3'
+
 gem 'delayed_job_active_record'
 gem 'daemons'
 

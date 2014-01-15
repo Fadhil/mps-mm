@@ -14,7 +14,8 @@ bm:
     postcode: 'Poskod'
     city: 'Bandar'
     state: 'Negeri'
-    
+  
+
   hello: "Hello world"
   are_you_sure: 'Anda Pasti?'
   all_media: 'Semua Media'
@@ -24,6 +25,10 @@ bm:
   back: 'Kembali'
   date: 'Tarikh'
   details: 'Maklumat'
+  username: 'username'
+  password: 'kata kunci'
+  login: 'Daftar Masuk'
+  remember_me: 'Ingati Saya'
   time: 'Masa'
   number: 'Bil.'
   venue: 'Tempat'

@@ -1,12 +1,30 @@
-%nav.navbar
+%nav.navbar.pretty
   .row.top
     .twelve.columns
       .text-align-right
   .row.bottom
     .six.columns
       %h3.six.columns.logo
-
         = image_tag 'logo.png'
+    .six.columns.print-disabled
+      /- Social Networking Buttons
+      .push_eleven.one.columns
+        %ul
+          / %li
+          /   =link_to media_profiles_path do
+          /     = t('.list_all_media_profiles')
+          / %li
+          /   =link_to events_path do
+          /     = t('.list_all_events')
+          / %li
+          /   =link_to '#' do
+          /     %i.icon-gplus
+          / %li
+          /   =link_to '#' do
+          /     %i.icon-rss
+          - if current_user
+            %li
+              = link_to 'Logout', destroy_user_session_path, method: :delete
     
       /- Search
       / %ul.six.columns
