@@ -10,7 +10,7 @@
       %th= t('media_type')
       /%th= t('name_title')
       %th= t('name')
-      %th= t('company_name')
+      %th= t('media_name')
       / %th= t('designation')
       / %th= t('company_name')
       / %th= t('office_phone')
@@ -21,7 +21,7 @@
       %tr
         %td= media_profile.media_type
         %td= link_to "#{media_profile.try(:title)} #{media_profile.name}".strip, media_profile, class: 'show-link'
-        %td= media_profile.company_name
+        %td= media_profile.media_name
         %td= link_to media_profile.email, media_profile, class: 'show-link'
         %td.buttons
           / %span.btn.medium.warning= link_to t('edit'), edit_media_profile_path(media_profile), class: 'wider-btn'
