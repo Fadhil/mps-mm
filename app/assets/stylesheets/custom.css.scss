@@ -1,5 +1,11 @@
 .navbar {
   background: darkgray !important;
+
+  .logo {
+    img {
+      height: 55px;
+    }
+  }
 }
 
 .show-table{
