@@ -104,7 +104,7 @@ class EventsController < ApplicationController
     selected_media.each do |m|
       #InvitationMailer.delay(:run_at => 1.minutes.from_now ).send_invites(m, @event)
       attendee = @event.add_participant(m)
-      #InvitationMailer.send_invites(m,@event, attendee).deliver
+      InvitationMailer.send_invites(m,@event, attendee).deliver
       
     end
     redirect_to @event
