@@ -34,6 +34,7 @@ bm:
   name_title: 'Gelaran'
   designation: 'Jawatan'
   edit_media_profile: 'Kemas Kini Profil Media'
+  enter_search_terms: 'Masukkan carian anda...'
   letter: 'Lampiran'
   new_media_profile: 'Profil Media Baru'
   edit_event: 'Kemas Kini Acara'

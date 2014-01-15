@@ -22,7 +22,26 @@ class MediaProfile < ActiveRecord::Base
     def filter_by_type(media_type)
       self.where(media_type: media_type)
     end
+
+    def search(terms)
+      if terms
+        terms = terms.split(' ').join('%')
+        find(:all, conditions: ['media_type like :search OR 
+                                  title like :search OR 
+                                  name like :search OR 
+                                  designation like :search OR
+                                  company_name like :search OR
+                                  office_phone like :search OR
+                                  phone like :search OR
+                                  email like :search OR
+                                  personal_email like :search OR
+                                  media_name like :search', { search: "%#{terms}%"}])
+      else
+        find(:all)
+      end
+    end
   end
+
 
 
 end

@@ -12,11 +12,13 @@ class MediaProfilesController < ApplicationController
 
   # POST /filter_media_profiles
   def filter
+    @search_terms = params[:search]
+    @media_profiles = MediaProfile.search(@search_terms)
     @media_type = params[:media_profile_select]
     if @media_type.to_sym == :all_media
-      @media_profiles = MediaProfile.order('name asc')
+      @media_profiles
     else
-      @media_profiles = MediaProfile.filter_by_type(@media_type).order('name asc')
+      @media_profiles = @media_profiles.select{ |x| x.media_type == @media_type}
     end
 
     respond_to do |format|
