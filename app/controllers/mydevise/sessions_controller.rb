@@ -1,5 +1,5 @@
 class Mydevise::SessionsController < Devise::SessionsController
-layout :empty.to_s
+layout :landing.to_s
 
 
 
