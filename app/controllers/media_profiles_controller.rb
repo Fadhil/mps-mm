@@ -53,6 +53,10 @@ class MediaProfilesController < ApplicationController
   # GET /media_profiles/1/edit
   def edit
     @media_profile = MediaProfile.find(params[:id])
+    if @media_profile.address.nil?
+      @media_profile.build_address
+      @media_profile.address.city = City.where(name: 'Kuala Lumpur').first #default to KL
+    end
   end
 
   # POST /media_profiles
