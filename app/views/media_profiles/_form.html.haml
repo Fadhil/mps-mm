@@ -7,7 +7,7 @@
             %tr
               %th= f.label t('.title')
               %td
-                .picker= f.select :title, options_for_select(MediaProfile.titles)
+                .picker= f.select :title, options_for_select(MediaProfile.titles, selected: @media_profile.try(:title))
             %tr
               %th= f.label t('name')
               %td= f.text_field :name, :class => 'text input', placeholder: t('name')
@@ -17,7 +17,7 @@
             %tr
               %th= f.label t('media_type')
               %td
-                .picker= f.select :media_type, options_for_select(MediaProfile.media_types)
+                .picker= f.select :media_type, options_for_select(MediaProfile.media_types, selected: @media_profile.try(:media_type))
             %tr
               %th= f.label t('company_name')
               %td= f.text_field :company_name, class: 'text input', placeholder: t('company_name')
