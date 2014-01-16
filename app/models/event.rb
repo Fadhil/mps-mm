@@ -23,13 +23,16 @@ class Event < ActiveRecord::Base
     media_profile = p
     self.generate_attendance_list
     attendee = self.attendance_list.attendees.where(media_profile_id: media_profile).first || self.attendance_list.attendees.create(media_profile_id: media_profile.id)
+    attendee.name = media_profile.name
+    attendee.save
     self.save
     attendee
+
   end
 
   def attendees_list
     attendees = {}
-    self.attendance_list.attendees.sort{ |x,y| y.full_name <=> x.full_name}.each do |a|
+    self.attendance_list.attendees.order('name asc').each do |a|
       media_type = a.try(:media_profile).try(:media_type) || a.try(:media_type)
       attendees[media_type] = [] unless attendees[media_type]
       attendee_details = {}
