@@ -20,7 +20,7 @@ bm:
   are_you_sure: 'Anda Pasti?'
   all_media: 'Semua Media'
   add_attendee: 'Tambah Peserta'
-  edit_recipients: 'Kemas Kini Senarai Penerima'
+  edit_recipients: 'Edit Penerima'
   agenda_details: 'Aturcara Majlis'
   back: 'Kembali'
   date: 'Tarikh'
@@ -55,8 +55,8 @@ bm:
   media_name: 'Nama Media'
   company_name: 'Nama Syarikat'
   company_address: 'Alamat Syarikat'
-  office_phone: 'No. Telefon Pejabat'
-  phone: 'No. Telefon Bimbit'
+  office_phone: 'No. telefon pejabat'
+  phone: 'No. telefon bimbit'
   read_email: 'Email Dibaca?'
   rsvp_response: 'Jawapan RSVP'
   present: 'Hadir'
@@ -97,6 +97,8 @@ bm:
       mail_will_be_sent_to: 'Email akan dihantar kepada %{number_of_emails} orang'
     already_responded:
       message: 'Anda sudah pernah membalas RSVP ini.'
+    edit_recipients:
+      send: 'Sah Senarai'
 
   layouts:
     header:

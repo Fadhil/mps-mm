@@ -29,7 +29,7 @@ class Event < ActiveRecord::Base
 
   def attendees_list
     attendees = {}
-    self.attendance_list.attendees.each do |a|
+    self.attendance_list.attendees.sort{ |x,y| y.full_name <=> x.full_name}.each do |a|
       media_type = a.try(:media_profile).try(:media_type) || a.try(:media_type)
       attendees[media_type] = [] unless attendees[media_type]
       attendee_details = {}
@@ -46,7 +46,6 @@ class Event < ActiveRecord::Base
       attendees[media_type] << attendee_details
      
     end
-
 
     attendees
   end
