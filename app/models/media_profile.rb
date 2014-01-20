@@ -6,9 +6,19 @@ class MediaProfile < ActiveRecord::Base
   has_many :attendances, class_name: Attendee, dependent: :destroy
   accepts_nested_attributes_for :address, allow_destroy: true
 
+  before_save :set_internal
+
 
   validates :name, presence: true
   validates :company_name, presence: true
+
+  def set_internal
+    if self.media_type.in?(['MPS - Ahli Majlis','MPS - Pengarah Jabatan'])
+      self.is_internal = true
+    else
+      self.is_internal = false
+    end
+  end
 
   class << self
     def titles

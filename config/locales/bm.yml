@@ -18,6 +18,7 @@ bm:
 
   hello: "Hello world"
   are_you_sure: 'Anda Pasti?'
+  all: 'Semua'
   all_media: 'Semua Media'
   add_attendee: 'Tambah Peserta'
   edit_recipients: 'Edit Penerima'

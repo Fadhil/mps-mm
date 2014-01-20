@@ -15,8 +15,10 @@ class MediaProfilesController < ApplicationController
     @search_terms = params[:search]
     @media_profiles = MediaProfile.search(@search_terms)
     @media_type = params[:media_profile_select]
-    if @media_type.to_sym == :all_media
+    if @media_type.to_sym == :all
       @media_profiles
+    elsif @media_type.to_sym == :all_media
+      @media_profiles  = @media_profiles.where(is_internal: false)
     else
       @media_profiles = @media_profiles.where(media_type: @media_type)
     end
