@@ -118,24 +118,37 @@ class EventsController < ApplicationController
   end
 
   def update_attendance
-    media_profile = MediaProfile.find(params[:media_profile_id]) rescue nil 
-    attendance = Attendee.find(params[:attendee_id]) rescue nil
-    event = Event.find(params[:event_id]) rescue nil
-    attended = params[:attended]
-    attendance.attended = attended
-    attendance.attendance_status = params[:attendance_status]
-
-
-    if attendance.save
-      respond_to do |format|
-        format.html do
-          @event = event
-          flash[:notice] = t('event_successfully_updated')
-          redirect_to request.referrer
-          #render action: '../pages/upcoming_courses_show'
-        end
+    @attendance_list = Event.find(params[:id]).attendance_list
+    present_radio = params[:present_radio]
+    if present_radio
+      present_radio.each do |key, value|
+        attendee = Attendee.find(key)
+        attendee.attendance_status = value
+        attendee.save
       end
+      
     end
+    respond_to do |format|
+      format.html { redirect_to request.referrer || root_path }
+    end
+    # media_profile = MediaProfile.find(params[:media_profile_id]) rescue nil 
+    # attendance = Attendee.find(params[:attendee_id]) rescue nil
+    # event = Event.find(params[:event_id]) rescue nil
+    # attended = params[:attended]
+    # attendance.attended = attended
+    # attendance.attendance_status = params[:attendance_status]
+
+
+    # if attendance.save
+    #   respond_to do |format|
+    #     format.html do
+    #       @event = event
+    #       flash[:notice] = t('event_successfully_updated')
+    #       redirect_to request.referrer
+    #       #render action: '../pages/upcoming_courses_show'
+    #     end
+    #   end
+    # end
 
   end
 
@@ -174,7 +187,6 @@ class EventsController < ApplicationController
     @attendee = Attendee.find(params[:attendee_id])
     @attendee.email_read = true
     @attendee.save
-    logger.info "actually in this sucker #{params[:attendee_id]}"
     send_file "#{Rails.root}/public/assets/images/trackimgwhite.png", :type => 'image/png', :disposition => 'inline' 
     #send_data open(url, "rb") { |f| f.read }
   end
@@ -183,6 +195,13 @@ class EventsController < ApplicationController
     @attendance_list = Event.find(params[:id]).attendance_list
     @attendance_list.update_attributes(params[:attendance_list])
     @attendance_list.save
+    present_radio = params[:present_radio]
+    if present_radio
+      present_radio.each do |key, value|
+
+      end
+      Rails.logger.info "\n\n\n\n\npresent radio: #{present_radio}\n\n\n\n\n\n"
+    end
     respond_to do |format|
       format.html { redirect_to request.referrer || root_path }
     end

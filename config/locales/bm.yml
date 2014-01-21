@@ -61,6 +61,7 @@ bm:
   read_email: 'Email Dibaca?'
   rsvp_response: 'Jawapan RSVP'
   present: 'Hadir'
+  absent: 'Tidak Hadir'
   not_present: 'Tidak Hadir'
   cannot_attend: 'Tidak Dapat Hadir'
   event_successfully_created: 'Acara Berjaya Didaftar'

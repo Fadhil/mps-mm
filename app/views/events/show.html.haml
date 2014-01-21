@@ -72,92 +72,110 @@
 %br
 %br
 .row
-  - if @event.attendance_list
-    - if @event.attendance_list.attendees.count > 0 # && @event.date >= Date.today
-      .row
-        .ten.columns
-          %h5= t('.attendance_list')
-        .two.columns.print-disabled
-          %span.pretty.medium.btn.info.print-disabled
-            = link_to t('print'), '#', onClick: "print();"
-      %hr.divider
-      - @event.attendees_list.each do |key, details|
-        %h3
-          = key
-        %table.table.table-striped
-          %thead
-            %tr
-              %th
-                ID
-              %th
-                =t('nama')
-              %th
-                =t('email')
-              %th
-                =t('company_name')
-              - unless key == 'walkin'
-                %th
-                  =t('read_email')
-                %th
-                  =t('rsvp_response')
-              %th
-          %tbody
-            - details.each_with_index do |values, index|
+  
+  = nested_form_for @event.attendance_list, url: add_walkins_event_path(@event), method: :post do |f|
+    - if @event.attendance_list
+      - if @event.attendance_list.attendees.count > 0 # && @event.date >= Date.today
+        .row
+          .ten.columns
+            %h5= t('.attendance_list')
+          .two.columns.print-disabled
+            %span.pretty.medium.btn.info.print-disabled
+              = link_to t('print'), '#', onClick: "print();"
+        %hr.divider
+        - @event.attendees_list.each do |key, details|
+          %h3
+            = key
+          %table.table.table-striped
+            %thead
               %tr
-                %td
-                  = index + 1
-                %td
-                  = values[:full_name]
-                %td
-                  = values[:email]
-                %td
-                  = values[:company_name]
-                
+                %th
+                  ID
+                %th
+                  =t('nama')
+                %th
+                  =t('email')
+                %th
+                  =t('company_name')
                 - unless key == 'walkin'
+                  %th
+                    =t('read_email')
+                  %th
+                    =t('rsvp_response')
+                %th
+            %tbody
+              - details.each_with_index do |values, index|
+                %tr
                   %td
-                    = display_email_read_status(values[:email_read])
+                    = index + 1
                   %td
-                    = display_rsvp_status(values[:rsvp_response]) 
+                    = values[:full_name]
+                  %td
+                    = values[:email]
+                  %td
+                    = values[:company_name]
+                  
+                  - unless key == 'walkin'
+                    %td
+                      = display_email_read_status(values[:email_read])
+                    %td
+                      = display_rsvp_status(values[:rsvp_response]) 
 
-                %td{style: 'width: 80px;'}
-                  - if @event.date <= Date.today
-                    - if !values[:attendance_status].nil?
-                      = t(values[:attendance_status])
-                    - else
-                      %ul.print-disabled
-                        %li
-                          %p
-                            = link_to t('present'), update_attendance_event_path(media_profile_id: values[:media_profile_id], attendee_id: values[:attendee_id], event_id: values[:event_id], attended: true, attendance_status: 'present'), method: :post
-                        %li
-                          %p
-                            = link_to t('not_present'), update_attendance_event_path(media_profile_id: values[:media_profile_id], attendee_id: values[:attendee_id], event_id: values[:event_id], attended: false, attendance_status: 'not_present'), method: :post
-                        /
+                  %td{style: 'width: 80px;'}
+                    - if @event.date <= Date.today
+                      - if !values[:attendance_status].nil?
+                        = t(values[:attendance_status])
+                      - else
+                        %ul.print-disabled
                           %li
-                            %p
-                              = link_to t('cannot_attend'), update_attendance_event_path(media_profile_id: values[:media_profile_id], attendee_id: values[:attendee_id], event_id: values[:event_id], attended: false, attendance_status: 'cannot_attend'), method: :post
-               
-  .row.print-disabled
-    .fourteen.columns
-      = nested_form_for @event.attendance_list, url: add_walkins_event_path(@event), method: :post do |f|
-        = f.fields_for :walkins do |a|
-          = a.text_field :name, placeholder: t('name'), :class => 'text input', :placeholder => t('name') if a.object.new_record?
-          = a.text_field :email, placeholder: t('email'), :class => 'text input' if a.object.new_record?
-          = a.text_field :company_name, placeholder: t('company_name'), :class => 'text input' if a.object.new_record?
-          = a.text_field :phone, placeholder: t('phone') , :class => 'text input' if a.object.new_record?
+                            .field
+                              %label.radio.checked{for: "check_present_#{values[:attendee_id]}"}
+                                %input.radio{type: :radio, value: 'present', name: "present_radio[#{values[:attendee_id]}]", checked: 'checked', id: "check_present_#{values[:attendee_id]}" }  
+                                / "check_present_#{values[:attendee_id]}[]",values[:attendee_id], name: 'present_ids[]', type: 'radio',checked: false, class: 'radio', value: values[:attendee_id]
+                                %span
+                              %small
+                                =t('present')
+                              
+                          %li
+                            .field
+                              %label.radio{for: "check_absent_#{values[:attendee_id]}"}
+                                %input.radio{type: :radio, value: 'absent', name: "present_radio[#{values[:attendee_id]}]", id: "check_absent_#{values[:attendee_id]}" } 
+                                =# radio_button_tag  "check_absent_#{values[:attendee_id]}[]",values[:attendee_id], name:'absent_ids[]', type: 'radio', class: 'radio',checked: '', value: values[:attendee_id]
+                                %span
+                              %small
+                                =t('not_present')
+                              
+                          /
+                            %li
+                              %p
+                                = link_to t('cannot_attend'), update_attendance_event_path(media_profile_id: values[:media_profile_id], attendee_id: values[:attendee_id], event_id: values[:event_id], attended: false, attendance_status: 'cannot_attend'), method: :post
+                 
+        .row.print-disabled
+          .fourteen.columns
+            = f.fields_for :walkins do |a|
+              = a.text_field :name, placeholder: t('name'), :class => 'text input', :placeholder => t('name') if a.object.new_record?
+              = a.text_field :email, placeholder: t('email'), :class => 'text input' if a.object.new_record?
+              = a.text_field :company_name, placeholder: t('company_name'), :class => 'text input' if a.object.new_record?
+              = a.text_field :phone, placeholder: t('phone') , :class => 'text input' if a.object.new_record?
 
+              
+              = a.select :media_type, options_for_select(MediaProfile.media_types) if a.object.new_record?
           
-          = a.select :media_type, options_for_select(MediaProfile.media_types) if a.object.new_record?
-      
-          = a.link_to_remove t('remove') if a.object.new_record?
-          = a.hidden_field :attended, value: 1 if a.object.new_record?
-        = f.link_to_add :walkins do
-          %i.icon-user-add
-          =t('add_attendee')
-        %span
-          |
-        = link_to 'javascript:', :onClick => 'submit();' do
-          %i.icon-pencil
-          =t('update')
+              = a.link_to_remove t('remove') if a.object.new_record?
+              = a.hidden_field :attended, value: 1 if a.object.new_record?
+            = f.link_to_add :walkins do
+              %i.icon-user-add
+              =t('add_attendee')
+            %span
+              |
+            = link_to 'javascript:', :onClick => "submit();" do
+              %i.icon-pencil
+              =t('add_attendee')
+            %span
+              |
+            = link_to 'javascript:', :onClick => "$('form')[1].action = '#{@event.id}/update_attendance';submit();" do
+              %i.icon-pencil
+              =t('update')
 
 
 
