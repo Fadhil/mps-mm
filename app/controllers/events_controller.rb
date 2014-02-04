@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
+
+  skip_before_filter :authenticate_user!, only: [ :open_email ]
   layout 'empty', only: [:terima_kasih, :coming]
   def index
     @events = Event.order('date desc')
@@ -213,6 +215,8 @@ class EventsController < ApplicationController
   end
 
   def open_email
-    
+    respond_to do |format|
+      format.json { }
+    end
   end
 end
