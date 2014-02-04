@@ -49,9 +49,19 @@ Mps::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  config.action_mailer.delivery_method = :ses
+  #config.action_mailer.delivery_method = :ses
 
   config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 25, # ports 587 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => ENV['MANDRILL_USERNAME'],
+    :password  =>   ENV['MANDRILL_APIKEY'], # SMTP password is any valid API key
+    :authentication => 'login', # Mandrill supports 'plain' or 'login'
+    :domain => 'iedwrites.com', # your domain to identify your server when connecting
+  }
 
   config.action_mailer.default_url_options = { :host => 'mps-mm.herokuapp.com' }
 

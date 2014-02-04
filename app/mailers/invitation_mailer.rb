@@ -1,8 +1,9 @@
 class InvitationMailer < ActionMailer::Base
   default from: "fadhil.luqman@gmail.com"
 
+
   def send_invites(media_profile, event, attendee)
-    "in invitation mailer\n"
+    
     @media_profile = media_profile
     @event = event
     @attendee = attendee
