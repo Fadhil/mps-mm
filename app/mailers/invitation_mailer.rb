@@ -1,5 +1,5 @@
 class InvitationMailer < ActionMailer::Base
-  default from: "fadhil.luqman@gmail.com"
+  default from: "mps-mm@iedwrites.com"
 
 
   def send_invites(media_profile, event, attendee)
