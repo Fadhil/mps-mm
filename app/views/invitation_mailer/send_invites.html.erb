@@ -7,7 +7,7 @@
     <h1>
       <%= "#{@media_profile.name}," %>
     </h1>
-    <img src='<%= track_open_event_url(id: @event.id, attendee_id: @attendee.id)%>'/>
+    #<img src='<%= track_open_event_url(id: @event.id, attendee_id: @attendee.id)%>'/>
     <p>
       <%= "Anda dijemput untuk menghadiri acara, #{@event.name}" %>
       <%= "pada #{@event.date.strftime('%d-%m-%Y')} bermula pukul #{@event.time.to_s(:time)}." %>
