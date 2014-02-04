@@ -216,7 +216,8 @@ class EventsController < ApplicationController
 
   def open_email
     respond_to do |format|
-      format.json { }
+      format.html
+      format.json {}
     end
   end
 end
