@@ -19,8 +19,8 @@ class InvitationMailer < ActionMailer::Base
       attachments["letter.#{letter_extension.to_s}"] = open(@event.letter.to_s).read unless @event.letter.blank?
       attachments["agenda.#{agenda_extension.to_s}"] = open(@event.agenda_details.to_s).read unless @event.agenda_details.blank?
     end
-    mail to: emails, subject: "Anda dijemput ke acara #{@event.name}"
-    headers['X-MC-Track'] = "opens"
+    mail(to: emails, subject: "Anda dijemput ke acara #{@event.name}")
+
   end
 
   def get_file_extension(file)
