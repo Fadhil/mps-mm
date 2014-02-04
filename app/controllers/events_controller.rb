@@ -211,4 +211,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @attendee = Attendee.find(params[:attendee_id])
   end
+
+  def open_email
+    
+  end
 end

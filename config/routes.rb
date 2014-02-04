@@ -5,6 +5,7 @@ Mps::Application.routes.draw do
     devise_for :users, controllers: { sessions: 'mydevise/sessions' }
     get '/welcome' => 'application#welcome'
     get 'city_dropdown' => 'application#city_dropdown', as: :city_dropdown
+    match '/open_email' => 'events#open_email'
     resources :events do
       member do
         post '' => 'events#show'
