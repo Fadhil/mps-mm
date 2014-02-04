@@ -18,6 +18,7 @@
 /db/*.sqlite3
 /log/*.log
 /tmp
+/tmp/*
 bundler_stubs/
 config/database.yml
 custom_plan.rb
