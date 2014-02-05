@@ -223,7 +223,7 @@ class EventsController < ApplicationController
         event_name = t['msg']['subject'].gsub('Anda dijemput ke acara','').strip
         email = t['msg']['email'].strip
 
-        event = Event.where(name: event_name)
+        event = Event.where(name: event_name).first
         Rails.logger.info "email: #{email} , event: #{event}\n"
         if event
           attendee = event.attendance_list.attendees.where(email: email).first
