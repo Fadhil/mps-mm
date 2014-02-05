@@ -217,7 +217,8 @@ class EventsController < ApplicationController
   def open_email
 
     @track = JSON.parse(params[:mandrill_events])
-    Rails.logger.info "The track is #{@track}"
+    Rails.logger.info "The subject is #{@track}\n\n"
+    Rails.logger.info "The email is #{@track['email']}\n\n"
     respond_to do |format|
       format.html
       format.json {}
