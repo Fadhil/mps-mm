@@ -218,8 +218,8 @@ class EventsController < ApplicationController
 
     @track = JSON.parse(params[:mandrill_events])
     @track.each do |t|
-      Rails.logger.info "The subject is #{t}\n\n"
-      Rails.logger.info "The email is #{t['email']}\n\n"
+      Rails.logger.info "The subject is #{t['msg']['subject']}\n\n"
+      Rails.logger.info "The email is #{t['msg']['email']}\n\n"
     end
     respond_to do |format|
       format.html
