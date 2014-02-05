@@ -16,7 +16,7 @@ class InvitationMailer < ActionMailer::Base
       attachments["lampiran.#{letter_extension.to_s}"] = File.read("#{Rails.root}/public#{@event.letter}") unless @event.letter.blank?
       attachments["agenda.#{agenda_extension.to_s}"] = File.read("#{Rails.root}/public#{@event.agenda_details}") unless @event.agenda_details.blank?
     elsif Rails.env.production?
-      attachments["letter.#{letter_extension.to_s}"] = open(@event.letter.to_s).read unless @event.letter.blank?
+      attachments["lampiran.#{letter_extension.to_s}"] = open(@event.letter.to_s).read unless @event.letter.blank?
       attachments["agenda.#{agenda_extension.to_s}"] = open(@event.agenda_details.to_s).read unless @event.agenda_details.blank?
     end
     mail(to: emails, subject: "Anda dijemput ke acara #{@event.name}")
