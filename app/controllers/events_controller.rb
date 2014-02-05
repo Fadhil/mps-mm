@@ -126,6 +126,7 @@ class EventsController < ApplicationController
       present_radio.each do |key, value|
         attendee = Attendee.find(key)
         attendee.attendance_status = value
+        attendee.email_read = true
         attendee.save
       end
       
