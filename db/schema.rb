@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140120160412) do
+ActiveRecord::Schema.define(:version => 20140205075601) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(:version => 20140120160412) do
     t.string   "agenda_details"
     t.string   "name"
   end
+
+  add_index "events", ["name"], :name => "index_events_on_name"
 
   create_table "media_profiles", :force => true do |t|
     t.string   "media_type"

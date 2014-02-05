@@ -24,6 +24,8 @@ class Event < ActiveRecord::Base
     self.generate_attendance_list
     attendee = self.attendance_list.attendees.where(media_profile_id: media_profile).first || self.attendance_list.attendees.create(media_profile_id: media_profile.id)
     attendee.name = media_profile.name
+    attendee.email = media_profile.email
+    attendee.company_name = media_profile.company_name
     attendee.save
     self.save
     attendee

@@ -218,8 +218,12 @@ class EventsController < ApplicationController
 
     @track = JSON.parse(params[:mandrill_events])
     @track.each do |t|
-      Rails.logger.info "The subject is #{t['msg']['subject']}\n\n"
-      Rails.logger.info "The email is #{t['msg']['email']}\n\n"
+      event_name = t['msg']['subject'].gsub('Anda dijemput ke acara','').strip
+      email = t['msg']['email'].strip
+      event = Event.where(name: event_name)
+      attendee = event.attendance_list.attendees.where(email: email)
+      attendee.email_read = true
+      attendee.save
     end
     respond_to do |format|
       format.html
