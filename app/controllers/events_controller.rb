@@ -225,9 +225,13 @@ class EventsController < ApplicationController
 
         event = Event.where(name: event_name)
         Rails.logger.info "email: #{email} , event: #{event}\n"
-        attendee = event.attendance_list.attendees.where(email: email)
-        attendee.email_read = true
-        attendee.save
+        if event
+          attendee = event.attendance_list.attendees.where(email: email)
+          if attendee
+            attendee.email_read = true
+            attendee.save
+          end
+        end
       end
       respond_to do |format|
         format.html
