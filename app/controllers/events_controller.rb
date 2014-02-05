@@ -215,13 +215,16 @@ class EventsController < ApplicationController
   end
 
   def open_email
+    Rails.logger.info "in here\n\n"
     unless params[:mandrill_events].nil?
-      Rails.logger "params are: #{params}"
+      Rails.logger.info "params are: #{params[:mandrill_events]}\n\n"
       @track = JSON.parse(params[:mandrill_events])
       @track.each do |t|
         event_name = t['msg']['subject'].gsub('Anda dijemput ke acara','').strip
         email = t['msg']['email'].strip
+
         event = Event.where(name: event_name)
+        Rails.logger.info "email: #{email} , event: #{event}\n"
         attendee = event.attendance_list.attendees.where(email: email)
         attendee.email_read = true
         attendee.save
