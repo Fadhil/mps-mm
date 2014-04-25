@@ -4,8 +4,9 @@
       .text-align-right
   .row.bottom
     .six.columns
-      %h3.six.columns.logo
-        = image_tag 'logo.png'
+      = link_to welcome_path do
+        %h3.six.columns.logo
+          = image_tag 'logo.png'
     .six.columns.print-disabled
       /- Social Networking Buttons
       .five.push_one.columns

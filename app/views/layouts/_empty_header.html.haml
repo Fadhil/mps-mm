@@ -4,8 +4,9 @@
       .text-align-right
   .row.bottom
     .six.columns
-      %h3.six.columns.logo
-        = image_tag 'logo.png'
+      = link_to welcome_path do
+        %h3.six.columns.logo
+          = image_tag 'logo.png'
     .six.columns.print-disabled
       /- Social Networking Buttons
       .push_eleven.one.columns
@@ -22,9 +23,9 @@
           / %li
           /   =link_to '#' do
           /     %i.icon-rss
-          - if current_user
-            %li
-              = link_to 'Logout', destroy_user_session_path, method: :delete
+          /- if current_user
+          /  %li
+          /    = link_to 'Logout', destroy_user_session_path, method: :delete
     
       /- Search
       / %ul.six.columns
