@@ -41,7 +41,7 @@
                     - else
                       - @cities = City.where(state_name: 'Selangor').order(:name)
                     .picker
-                      = select_tag "city", options_for_select(@cities.map{ |a| [a.name, a.id]}, selected: c.object.try(:id) ), :include_blank => true
+                      = select_tag "city", options_for_select(@cities.map{ |a| [a.name, a.id]}, selected: c.object.try(:id) ), :include_blank => false
             
                   = a.fields_for :city do |c|
                     - if c.object.id
@@ -49,7 +49,7 @@
                     - else
                       - selected_state = 'Selangor'
                     .picker
-                      = select_tag "state", options_for_select(City.order(:state_name).map{ |a| [a.state_name]}.uniq, selected: selected_state), :include_blank => true
+                      = select_tag "state", options_for_select(City.order(:state_name).map{ |a| [a.state_name]}.uniq, selected: selected_state), :include_blank => false
             %tr
               %th= f.label t('email')
               %td= f.text_field :email, class: 'text input', placeholder: 'email_rasmi@domain_syarikat.com'
