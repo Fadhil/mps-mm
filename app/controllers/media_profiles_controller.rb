@@ -15,9 +15,9 @@ class MediaProfilesController < ApplicationController
     @search_terms = params[:search]
     @media_profiles = MediaProfile.search(@search_terms)
     @media_type = params[:media_profile_select]
-    if @media_type.to_sym == :all
+    if @media_type.try(:to_sym) == :all
       @media_profiles
-    elsif @media_type.to_sym == :all_media
+    elsif @media_type.try(:to_sym) == :all_media
       @media_profiles  = @media_profiles.where(is_internal: false)
     else
       @media_profiles = @media_profiles.where(media_type: @media_type)
@@ -108,10 +108,12 @@ class MediaProfilesController < ApplicationController
   # DELETE /media_profiles/1.json
   def destroy
     @media_profile = MediaProfile.find(params[:id])
+    search_terms = params[:search_terms]
+    media_type = @media_profile.media_type
     @media_profile.destroy
 
     respond_to do |format|
-      format.html { redirect_to media_profiles_url }
+      format.html { redirect_to filter_media_profiles_url(media_profile_select: media_type, search: search_terms) }
       format.json { head :no_content }
     end
   end
