@@ -23,7 +23,7 @@ Mps::Application.routes.draw do
 
     resources :media_profiles do
       collection do 
-        post 'filter' => 'media_profiles#filter'
+        match 'filter' => 'media_profiles#filter', as: :filter
       end
     end
 
