@@ -25,7 +25,7 @@
               %th= f.label t('media_name')
               %td= f.text_field :media_name, class: 'text input', placeholder: t('media_name')
             %tr
-              %th= f.label t('company_address')
+              %th.align-top= f.label t('company_address')
               = f.fields_for :address do |a|
                 %td.address
                   = a.text_field :line1, placeholder: t('address.line1'),class: 'text input'
