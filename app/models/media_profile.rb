@@ -18,6 +18,7 @@ class MediaProfile < ActiveRecord::Base
     else
       self.is_internal = false
     end
+    true
   end
 
   class << self
