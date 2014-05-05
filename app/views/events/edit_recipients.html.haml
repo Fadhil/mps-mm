@@ -1,7 +1,12 @@
 .row
-  %h3
-    = t('edit_recipients')
-
+  .three.columns
+    %h3
+      = t('edit_recipients')
+  .push_five.four.columns
+    = link_to 'Pilih Semua', '#', id: 'check-all' 
+    |
+    = link_to 'Buang Semua', '#', id: 'uncheck-all'
+.row
   = form_for '', url: event_path(@event) do |f|
     %table.rounded
       %thead
