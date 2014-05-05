@@ -161,6 +161,7 @@ class EventsController < ApplicationController
     already_responded = true
     if attendee.rsvp.nil?
       attendee.rsvp = rsvp_response
+      attendee.email_read = true
       already_responded = false
     end
 
