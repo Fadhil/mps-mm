@@ -180,7 +180,7 @@ malaysia_cities = [
   {:name =>"Casey's Island", :state_name =>"Selangor"},
   {:name =>"Petaling Jaya", :state_name =>"Selangor"},
   {:name =>"Damansara", :state_name =>"Kuala Lumpur"},
-  {:name =>"Selayang", :state_name =>"Kuala Lumpur"},
+  {:name =>"Selayang", :state_name =>"Selangor"},
   {:name =>"Sentul", :state_name =>"Kuala Lumpur"},
   {:name =>"Sri Petaling", :state_name =>"Kuala Lumpur"},
   {:name =>"Damansara Heights", :state_name =>"Kuala Lumpur"},
@@ -248,5 +248,9 @@ malaysia_cities = [
   {:name =>"Saratok", :state_name =>"Sarawak"}
   ]
 
-malaysia_cities.each {|c| City.find_or_create_by_name(c)}
+malaysia_cities.each {|c| 
+  city = City.find_or_create_by_name(c)
+  city.state_name = c[:state_name]
+  city.save
+}
 # --- city and state for malaysia END here ---
