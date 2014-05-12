@@ -41,16 +41,16 @@ class MediaProfile < ActiveRecord::Base
     def search(terms)
       if terms
         terms = terms.split(' ').join('%')
-        where('media_type like :search OR 
-                                  title like :search OR 
-                                  name like :search OR 
-                                  designation like :search OR
-                                  company_name like :search OR
-                                  office_phone like :search OR
+        where('lower(media_type) like :search OR 
+                                  lower(title) like :search OR 
+                                  lower(name) like :search OR 
+                                  lower(designation) like :search OR
+                                  lower(company_name) like :search OR
+                                  lower(office_phone) like :search OR
                                   phone like :search OR
-                                  email like :search OR
-                                  personal_email like :search OR
-                                  media_name like :search', { search: "%#{terms}%"}).order('name asc')
+                                  lower(email) like :search OR
+                                  lower(personal_email) like :search OR
+                                  lower(media_name) like :search', { search: "%#{terms.downcase}%"}).order('name asc')
       else
         order('name asc')
       end
