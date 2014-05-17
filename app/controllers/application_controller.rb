@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   def city_dropdown
-    @cities = City.where(state_name: params[:state])
+    @cities = City.where(state_name: params[:state]).order(:name)
     respond_to do |format|
       format.html { render layout: false }
     end
