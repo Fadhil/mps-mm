@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   def filter
     @events = []
     unless params.empty?
-      @events = Event.where('name like ?',"%#{params[:search]}%")
+      @events = Event.where('lower(name) like ?',"%#{params[:search].downcase}%")
     end
 
     respond_to do |format|
