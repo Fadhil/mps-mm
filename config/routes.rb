@@ -7,6 +7,9 @@ Mps::Application.routes.draw do
     get 'city_dropdown' => 'application#city_dropdown', as: :city_dropdown
     match '/open_email' => 'events#open_email'
     resources :events do
+      collection do
+        post 'filter' => 'events#filter', as: :filter
+      end
       member do
         post '' => 'events#show'
         post 'send_invites' => 'events#send_invites', as: :send_invites_to

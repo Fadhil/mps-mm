@@ -1,0 +1,12 @@
+= form_for '', url: filter_events_path do |f|
+  .row
+    %h3.four.columns
+      = t('.search_events')  
+  .row   
+    .twelve.columns 
+      %ul.media-type-select
+        %li.field
+          = f.text_field :search, class: 'text input', size: '60', placeholder: t('enter_search_terms')
+        %li
+          %span.inline.btn.medium.primary
+            = f.button t('select')

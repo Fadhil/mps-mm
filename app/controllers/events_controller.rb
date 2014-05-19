@@ -13,6 +13,19 @@ class EventsController < ApplicationController
     end
   end
 
+  def filter
+    @events = []
+    unless params.empty?
+      @events = Event.where('name like ?',"%#{params[:search]}%")
+    end
+
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @events}
+    end
+
+  end
+
   # GET /events/1
   # GET /events/1.json
   def show

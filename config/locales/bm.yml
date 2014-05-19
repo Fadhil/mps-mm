@@ -76,6 +76,7 @@ bm:
   media_profiles: 
     index:
       title: 'Profil Media'
+    choose_media_type_select:
       choose_media_type: 'Pilih Jenis Media:'
     new:
       title: 'Profil Media Baru'
@@ -101,6 +102,8 @@ bm:
       message: 'Anda sudah pernah membalas RSVP ini.'
     edit_recipients:
       send: 'Sah Senarai'
+    search_events:
+      search_events: 'Cari Acara'
 
   layouts:
     header:
