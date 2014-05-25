@@ -11,11 +11,23 @@ class Attendee < ActiveRecord::Base
     self.try(:media_profile).try(:name) || self.try(:name)
   end 
 
+  def full_name_with_prefix
+    "#{self.try(:media_profile).try(:title)} #{self.full_name.titlecase}".lstrip
+  end
+
+  def designation 
+    self.try(:media_profile).try(:designation)
+  end
+
   def get_email
     self.try(:media_profile).try(:email) || self.try(:email)
   end
 
   def get_company_name
     self.try(:media_profile).try(:company_name) || self.try(:company_name)
+  end
+
+  def generate_invitation
+
   end
 end

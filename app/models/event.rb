@@ -55,6 +55,13 @@ class Event < ActiveRecord::Base
     attendees
   end
 
+  def time_string
+    ampm = (self.time.hour/12  == 0) ? 'am' : 'pm'
+    the_hour = (self.time.hour%12 == 0) ? '12' : (self.time.hour%12).to_s
+    the_minute = (self.time.min==0) ? '00' : self.time.min.to_s
+    "#{the_hour}:#{the_minute} #{ampm}"
+  end
+
 
   class << self
 

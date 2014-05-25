@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
   skip_before_filter :authenticate_user!, only: [ :open_email, :terima_kasih, :coming, :track_open, :update_rsvp, :already_responded]
   layout 'empty', only: [:terima_kasih, :coming]
+  layout false, only: [:show_invitation]
   def index
     @events = Event.order('date desc')
 
@@ -118,6 +119,13 @@ class EventsController < ApplicationController
     selected_media.each do |m|
       #InvitationMailer.delay(:run_at => 1.minutes.from_now ).send_invites(m, @event)
       attendee = @event.add_participant(m)
+
+      ##
+      # generate image for attendee invitation
+      ##
+
+      # attendee.generate_invitation
+
       InvitationMailer.send_invites(m,@event, attendee).deliver
       
     end
@@ -253,5 +261,10 @@ class EventsController < ApplicationController
         format.json {}
       end
     end
+  end
+
+  def show_invitation
+    @attendee = Attendee.find(params[:attendee_id])
+    @event = Event.find(params[:id])
   end
 end
