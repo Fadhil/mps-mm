@@ -62,6 +62,9 @@ gem 'aws-ses', require: 'aws/ses'
 
 gem 'nested_form'
 
+# IMGkit (HTML -> img)
+gem 'imgkit'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
