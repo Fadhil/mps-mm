@@ -26,7 +26,7 @@
         %td.buttons
           / %span.btn.medium.warning= link_to t('edit'), edit_media_profile_path(media_profile), class: 'wider-btn'
           / %br
-          %span.btn.medium.danger.padam-small= link_to t('destroy'), filter_media_profiles_path(media_profile_select: @media_type, search: @search_terms), :method => :delete, :data => { :confirm => t('are_you_sure') }
+          %span.btn.medium.danger.padam-small= link_to t('destroy'), media_profile_path(id: media_profile.id, media_profile_select: @media_type, search: @search_terms), :method => :delete, :data => { :confirm => t('are_you_sure') }
         / %tr
         /   %td
         /   %td.profile-details{colspan: 3}

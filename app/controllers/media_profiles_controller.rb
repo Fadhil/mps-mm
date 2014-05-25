@@ -109,7 +109,7 @@ class MediaProfilesController < ApplicationController
   def destroy
     @media_profile = MediaProfile.find(params[:id])
     search_terms = params[:search_terms]
-    media_type = @media_profile.media_type
+    media_type = params[:media_profile_select] #@media_profile.media_type
     @media_profile.destroy
 
     respond_to do |format|
