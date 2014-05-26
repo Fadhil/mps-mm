@@ -20,7 +20,7 @@ Mps::Application.routes.draw do
         get 'terima_kasih' => 'events#terima_kasih'
         get 'already_responded' => 'events#already_responded'
         get 'track_open/:attendee_id' => 'events#track_open', as: :track_open
-        get '/:attendee_id/invitation' => 'events#show_invitation'
+        get '/:attendee_id/invitation' => 'events#show_invitation', as: :show_invitation
         get '/:attendee_id/:rsvp_response' => 'events#update_rsvp', as: :update_rsvp
       end
     end
