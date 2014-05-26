@@ -2,11 +2,12 @@ class InvitationMailer < ActionMailer::Base
   default from: "mps-mm@iedwrites.com"
 
 
-  def send_invites(media_profile, event, attendee)
+  def send_invites(media_profile, event, attendee, the_domain)
     
     @media_profile = media_profile
     @event = event
     @attendee = attendee
+    @the_domain = the_domain
     emails = []
     emails << @media_profile.email
     emails << @media_profile.personal_email unless @media_profile.personal_email.blank?

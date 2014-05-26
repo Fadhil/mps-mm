@@ -130,8 +130,8 @@ class EventsController < ApplicationController
       ##
 
       #attendee.generate_invitation(show_invitation_event_url(id: @event.id, attendee_id: attendee.id))
-
-      InvitationMailer.send_invites(m,@event, attendee).deliver
+      
+      InvitationMailer.send_invites(m,@event, attendee,  request.host_with_port).deliver
       
     end
     redirect_to @event
