@@ -2,7 +2,7 @@ class MediaProfilesController < ApplicationController
   # GET /media_profiles
   # GET /media_profiles.json
   def index
-    @media_profiles = []
+    @media_profiles = MediaProfile.all
 
     respond_to do |format|
       format.html # index.html.erb
