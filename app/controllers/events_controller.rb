@@ -2,8 +2,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
 
-  skip_before_filter :authenticate_user!, only: [ :open_email, :terima_kasih, :coming, :track_open, :update_rsvp, :already_responded]
-  layout 'empty', only: [:terima_kasih, :coming]
+  skip_before_filter :authenticate_user!, only: [ :open_email, 
+                                                  :terima_kasih, 
+                                                  :coming, :track_open, 
+                                                  :update_rsvp, 
+                                                  :already_responded,
+                                                  :show_invitation]
+  layout 'empty', only: [:terima_kasih, :coming, :already_responded, :track_open]
   layout false, only: [:show_invitation]
   def index
     @events = Event.order('date desc')
@@ -124,7 +129,7 @@ class EventsController < ApplicationController
       # generate image for attendee invitation
       ##
 
-      # attendee.generate_invitation
+      #attendee.generate_invitation(show_invitation_event_url(id: @event.id, attendee_id: attendee.id))
 
       InvitationMailer.send_invites(m,@event, attendee).deliver
       
