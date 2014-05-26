@@ -27,7 +27,14 @@ class Attendee < ActiveRecord::Base
     self.try(:media_profile).try(:company_name) || self.try(:company_name)
   end
 
-  def generate_invitation
+  def generate_invitation(url)
+    kit = IMGKit.new(url)
+    kit.to_file("#{Rails.root.join('app','assets','images')}/invitation.png")
+    file = File.open("#{Rails.root.join('app','assets','images')}/invitation.png")
+    self.letter = file
+    
 
+    self.letter.store!
+    file.close
   end
 end

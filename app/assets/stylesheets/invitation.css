@@ -31,7 +31,7 @@
 }
 
 .event-details {
-  padding: 95 0 0 240;
+  padding: 110 0 0 240;
   font-size:1.3em;
   font-weight: 100;
 
@@ -39,5 +39,5 @@
 }
 
 .padding-extra {
-  padding-top: 2px;
+  padding-top: 5px;
 }

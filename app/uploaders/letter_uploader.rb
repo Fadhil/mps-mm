@@ -56,6 +56,10 @@ class LetterUploader < CarrierWave::Uploader::Base
   protected
 
 def image?(new_file)
-  new_file.content_type.include? 'image'
+  if new_file.content_type.nil?
+    true
+  else
+    new_file.content_type.include? 'image'
+  end
 end
 end

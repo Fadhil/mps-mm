@@ -1,0 +1,61 @@
+:css
+  .background-invitation {
+    background-image: url('http://localhost:3000/assets/invitation.png');
+    height: 1500px;
+    background-repeat: no-repeat;
+    width: 960px;
+    padding-left: 10px;
+    font-family: Helvetica;
+  }
+
+  .attendee-name {
+    
+    padding-top:310px;
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .attendee-designation {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+
+  .event-name {
+    padding: 100 0 0 0;
+    text-align: center;
+    font-size: 2.0em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .event-details {
+    padding: 95 0 0 240;
+    font-size:1.2em;
+    font-weight: 100;
+
+
+  }
+
+  .padding-extra {
+    padding-top: 5px;
+  }
+.background-invitation
+  .attendee-name
+    = @attendee.full_name_with_prefix
+  .attendee-designation
+    = @attendee.designation
+  .event-name
+    = @event.name
+  .event-details
+    .date
+      = @event.date
+    .time.padding-extra
+      = @event.time_string
+    .place.padding-extra
+      = @event.venue
+    .organizer.padding-extra
+      = @event.organizer
+      
