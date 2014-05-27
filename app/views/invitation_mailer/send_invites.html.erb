@@ -41,4 +41,14 @@
       <%= @event.organizer %>
     </div>
   </div>
+<table cellpadding="10px" cellspacing="10px">
+<tr>
+<td align="center" bgcolor="#000091" height="40" style="-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; color: #ffffff; display: block; position: absolute; top: 977px; right: 610px" width="300px">
+<%= link_to 'Saya Akan Hadir', update_rsvp_event_url(id: @event.id, attendee_id: @attendee.id, rsvp_response: 1 ), style:"color: #ffffff; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block" %>
+</td>
+<td align="center" bgcolor="#000091" height="40" style="-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; color: #ffffff; display: block; position: absolute; top: 977px; right: 190px" width="300px">
+<%= link_to 'Saya Tidak Akan Hadir', update_rsvp_event_url(id: @event.id, attendee_id: @attendee.id, rsvp_response: 0 ), style:"color: #ffffff; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block" %>
+</td>
+</tr>
+</table>
 </div>
