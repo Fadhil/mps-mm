@@ -60,6 +60,7 @@ bm:
   phone: 'No. telefon bimbit'
   read_email: 'Email Dibaca?'
   rsvp_response: 'Jawapan RSVP'
+  rsvp_by: 'Jawab RSVP Sebelum'
   present: 'Hadir'
   absent: 'Tidak Hadir'
   not_present: 'Tidak Hadir'

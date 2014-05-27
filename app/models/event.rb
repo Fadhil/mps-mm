@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :date, :official, :organizer, :time, :venue
+  attr_accessible :date, :official, :organizer, :time, :venue, :rsvp_by
   attr_accessible :letter, :agenda_details, :name, :remove_agenda_details, :remove_letter
 
   has_one :attendance_list, dependent: :destroy

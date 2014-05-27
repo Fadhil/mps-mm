@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140523191908) do
+ActiveRecord::Schema.define(:version => 20140527095233) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20140523191908) do
     t.string   "agenda_details"
     t.string   "name"
     t.string   "invitation"
+    t.date     "rsvp_by"
   end
 
   add_index "events", ["name"], :name => "index_events_on_name"
