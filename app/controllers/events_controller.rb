@@ -9,7 +9,7 @@ class EventsController < ApplicationController
                                                   :already_responded,
                                                   :show_invitation]
   layout 'empty', only: [:terima_kasih, :coming, :already_responded, :track_open]
-  layout false, only: [:show_invitation]
+
   def index
     @events = Event.order('date desc')
 
@@ -211,7 +211,6 @@ class EventsController < ApplicationController
   end
 
   def already_responded
-
   end
   def track_open
     @attendee = Attendee.find(params[:attendee_id])
@@ -271,5 +270,7 @@ class EventsController < ApplicationController
   def show_invitation
     @attendee = Attendee.find(params[:attendee_id])
     @event = Event.find(params[:id])
+
+    render layout: false
   end
 end
