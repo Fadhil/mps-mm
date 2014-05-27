@@ -1,29 +1,4 @@
-<style type="text/css" media="all"><!--
 
-
-  .attendee-name {
-    
-
-  }
-  .attendee-designation {
-
-  }
-
-  .event-name {
-    
-  }
-
-  .event-details {
-    
-
-
-  }
-
-  .padding-extra {
-      }
-
--->
-</style>
 <div class='background-invitation' style="background-image: url('http://<%= @the_domain %>/assets/invitation.png');
     height: 1500px;
     background-repeat: no-repeat;
@@ -43,14 +18,14 @@
     text-transform: uppercase;">
     <%= @attendee.designation %>
   </div>
-  <div class='event-name' style="padding: 100 0 0 0;
+  <div class='event-name' style="padding-top:100px;
     text-align: center;
     font-size: 2.0em;
     font-weight: bold;
     text-transform: uppercase;">
     <%= @event.name %>
   </div>
-  <div class='event-details' style="padding: 95 0 0 240;
+  <div class='event-details' style="padding-top: 95px; padding-left: 240px;
     font-size:1.2em;
     font-weight: 100;">
     <div class='date'>
