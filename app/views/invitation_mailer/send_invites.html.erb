@@ -25,26 +25,27 @@
     text-transform: uppercase;">
     <%= @event.name %>
   </div>
-  <div class='event-details' style="padding-top: 110px; padding-left: 240px;
+  <div class='event-details' style="padding-top: 110px; padding-left: 80px;
     font-size:1.4em;
     font-weight: 200;">
     <div class='date'>
-      <%= @event.date %>
+      <span style="font-weight: bold;display:inline-block;width=200px;" >Tarikh</span><span style="padding-left:20px;padding-right:20px;">:</span><span><%= @event.date %></span>
     </div>
     <div class='time padding-extra' style="padding-top: 3px;">
-      <%= @event.time_string %>
+      <span style="font-weight: bold;display:inline-block;width=200px;" >Masa</span><span style="padding-left:20px;padding-right:20px;">:</span><span><%= @event.time_string %></span>
     </div>
     <div class='place padding-extra' style="padding-top: 3px;">
-      <%= @event.venue %>
+      <span style="font-weight: bold;display:inline-block;width=200px;" >Tempat</span><span style="padding-left:20px;padding-right:20px;">:</span><span><%= @event.venue %></span>
     </div>
     <div class='organizer padding-extra' style="padding-top: 3px;">
-      <%= @event.organizer %>
+      <span style="font-weight: bold;display:inline-block;width=200px;" >Perasmi</span><span style="padding-left:20px;padding-right:20px;">:</span><span><%= @event.organizer %></span>
     </div>
   </div>
 
-  <div style="padding-top:115px; padding-left:260px; font-size:1.4em;
+  <div style="padding-top:20px; padding-left:80px; font-size:1.3em;
     font-weight: 200;">
-  <%= @event.rsvp_by %>
+    <p>* Aturcara seperti dilampiran</p>
+    <p>* Sila RSVP sebelum <%= @event.rsvp_by %></p>
 </div>
 <div>
 <ul>
