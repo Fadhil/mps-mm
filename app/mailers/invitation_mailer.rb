@@ -8,6 +8,7 @@ class InvitationMailer < ActionMailer::Base
     @event = event
     @attendee = attendee
     @the_domain = the_domain
+    @invitation_image_url = @media_profile.is_internal ? "https://s3.amazonaws.com/media-mps/mps-invitation.png" : "https://s3.amazonaws.com/media-mps/invitation.png"
     emails = []
     emails << @media_profile.email
     emails << @media_profile.personal_email unless @media_profile.personal_email.blank?

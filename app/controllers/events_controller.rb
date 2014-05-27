@@ -108,6 +108,7 @@ class EventsController < ApplicationController
 
   def send_invites
     @event = Event.find(params[:id])
+    
     media_type = params[:media_profile_select]
     if params[:button] == :send.to_s
       if params[:selected_media_ids]
