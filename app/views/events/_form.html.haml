@@ -14,10 +14,7 @@
             %tr
               %th= f.label t('time')
               %td= f.time_select :time,{ampm: true, default: Time.parse("09:00")}
-            %tr
 
-              %th= f.label t('rsvp_by')
-              %td= f.text_field :rsvp_by, class: 'text input datepicker', value: ( @event.rsvp_by.try(:strftime,'%d-%m-%Y') )#unless @event.new_record? )
             %tr
               %th= f.label t('venue')
               %td= f.text_field :venue, class: 'text input'
@@ -26,7 +23,11 @@
               %td= f.text_field :official, class: 'text input'
             %tr
               %th= f.label t('organizer')
-              %td= f.text_field :organizer, class: 'text input'
+              %td= f.text_field :organizer, class: 'text input'           
+            %tr
+
+              %th= f.label t('rsvp_by')
+              %td= f.text_field :rsvp_by, class: 'text input datepicker', value: ( @event.rsvp_by.try(:strftime,'%d-%m-%Y') )#unless @event.new_record? )
             %tr
               %th= f.label t('agenda_details')
               %td
