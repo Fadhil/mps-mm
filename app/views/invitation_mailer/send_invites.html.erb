@@ -7,13 +7,13 @@
     font-family: Helvetica;">
   <div class='attendee-name' style="padding-top:310px;
     text-align: center;
-    font-size: 1.6em;
+    font-size: 1.8em;
     font-weight: bold;
     text-transform: uppercase;">
     <%= @attendee.full_name_with_prefix %>
   </div>
   <div class='attendee-designation' style="text-align: center;
-    font-size: 1.6em;
+    font-size: 1.8em;
     font-weight: 100;
     text-transform: uppercase;">
     <%= @attendee.designation %>
@@ -25,19 +25,19 @@
     text-transform: uppercase;">
     <%= @event.name %>
   </div>
-  <div class='event-details' style="padding-top: 95px; padding-left: 240px;
-    font-size:1.2em;
-    font-weight: 100;">
+  <div class='event-details' style="padding-top: 110px; padding-left: 240px;
+    font-size:1.4em;
+    font-weight: 200;">
     <div class='date'>
       <%= @event.date %>
     </div>
-    <div class='time padding-extra' style="padding-top: 5px;">
+    <div class='time padding-extra' style="padding-top: 3px;">
       <%= @event.time_string %>
     </div>
-    <div class='place padding-extra' style="padding-top: 5px;">
+    <div class='place padding-extra' style="padding-top: 3px;">
       <%= @event.venue %>
     </div>
-    <div class='organizer padding-extra' style="padding-top: 5px;">
+    <div class='organizer padding-extra' style="padding-top: 3px;">
       <%= @event.organizer %>
     </div>
   </div>
