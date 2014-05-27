@@ -1,5 +1,72 @@
-<h1>Test</h1>
+<style type="text/css" media="all"><!--
+  .background-invitation {
+    background-image: url('http://#{@the_domain}/assets/invitation.png');
+    height: 1500px;
+    background-repeat: no-repeat;
+    width: 960px;
+    padding-left: 10px;
+    font-family: Helvetica;
+  }
 
-<div style="background-image:url('http://mps-media.herokuapp.com/assets/invitation.png')">
-  <h2>Harlow</h2>
+  .attendee-name {
+    
+    padding-top:310px;
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .attendee-designation {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+
+  .event-name {
+    padding: 100 0 0 0;
+    text-align: center;
+    font-size: 2.0em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .event-details {
+    padding: 95 0 0 240;
+    font-size:1.2em;
+    font-weight: 100;
+
+
+  }
+
+  .padding-extra {
+    padding-top: 5px;
+  }
+
+-->
+</style>
+<div class='background-invitation'>
+  <div class='attendee-name'>
+    <%= @attendee.full_name_with_prefix %>
+  </div>
+  <div class='attendee-designation'>
+    <%= @attendee.designation %>
+  </div>
+  <div class='event-name'>
+    <%= @event.name %>
+  </div>
+  <div class='event-details'>
+    <div class='date'>
+      <%= @event.date %>
+    </div>
+    <div class='time padding-extra'>
+      <%= @event.time_string %>
+    </div>
+    <div class='place padding-extra'>
+      <%= @event.venue %>
+    </div>
+    <div class='organizer padding-extra'>
+      <%= @event.organizer %>
+    </div>
+  </div>
 </div>
