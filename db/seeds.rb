@@ -188,7 +188,7 @@ malaysia_cities = [
   {:name =>"Putrajaya", :state_name =>"Kuala Lumpur"},
   {:name =>"Bangsar", :state_name =>"Kuala Lumpur"},
   {:name =>"Brickfields", :state_name =>"Kuala Lumpur"},
-  {:name =>"Batu Caves", :state_name =>"Kuala Lumpur"},
+  {:name =>"Batu Caves", :state_name =>"Selangor"},
   {:name =>"Gombak", :state_name =>"Kuala Lumpur"},
   {:name =>"Sungai Besi", :state_name =>"Kuala Lumpur"},
   {:name =>"Salak South", :state_name =>"Kuala Lumpur"},
