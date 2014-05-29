@@ -1,63 +1,89 @@
-
-<div class='background-invitation' style="background-image: url('<%= @invitation_image_url %>');
-    height: 1500px;
-    background-repeat: no-repeat;
-    width: 960px;
-    padding-left: 10px;
-    font-family: Helvetica;">
-  <div class='attendee-name' style="padding-top:310px;
-    text-align: center;
-    font-size: 1.8em;
-    font-weight: bold;
-    text-transform: uppercase;">
-    <%= @attendee.full_name_with_prefix %>
-  </div>
-  <div class='attendee-designation' style="text-align: center;
-    font-size: 1.8em;
-    font-weight: 100;
-    text-transform: uppercase;">
-    <%= @attendee.designation %>
-  </div>
-  <div class='event-name' style="padding-top:100px;
-    text-align: center;
-    font-size: 2.0em;
-    font-weight: bold;
-    text-transform: uppercase;">
-    <%= @event.name %>
-  </div>
-  <div class='event-details' style="padding-top: 110px; padding-left: 80px;
-    font-size:1.4em;
-    font-weight: 200;">
-    <div class='date'>
-      <span style="font-weight: bold;display:inline-block;width=200px;" >Tarikh</span><span style="padding-left:20px;padding-right:20px;">:</span><span><%= @event.date %></span>
-    </div>
-    <div class='time padding-extra' style="padding-top: 3px;">
-      <span style="font-weight: bold;display:inline-block;width=200px;" >Masa</span><span style="padding-left:20px;padding-right:20px;">:</span><span><%= @event.time_string %></span>
-    </div>
-    <div class='place padding-extra' style="padding-top: 3px;">
-      <span style="font-weight: bold;display:inline-block;width=200px;" >Tempat</span><span style="padding-left:20px;padding-right:20px;">:</span><span><%= @event.venue %></span>
-    </div>
-    <div class='organizer padding-extra' style="padding-top: 3px;">
-      <span style="font-weight: bold;display:inline-block;width=200px;" >Perasmi</span><span style="padding-left:20px;padding-right:20px;">:</span><span><%= @event.organizer %></span>
-    </div>
-  </div>
-
-  <div style="padding-top:20px; padding-left:80px; font-size:1.3em;
-    font-weight: 200;">
-    <p>* Aturcara seperti dilampiran</p>
-    <p>* Sila RSVP sebelum <%= @event.rsvp_by %></p>
-</div>
-<div>
-  <table>
-    <tr>
-      <td align="center" bgcolor="#000091" height="40" style="-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; color: #ffffff; display: block; position: absolute; top: 977px; right: 610px" width="300px">
-      <%= link_to 'Saya Akan Hadir', update_rsvp_event_url(id: @event.id, attendee_id: @attendee.id, rsvp_response: 1 ), style:"color: #ffffff; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block" %>
-      </td>
-      <td align="center" bgcolor="#000091" height="40" style="-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; color: #ffffff; display: block; position: absolute; top: 977px; right: 190px" width="300px">
-      <%= link_to 'Saya Tidak Akan Hadir', update_rsvp_event_url(id: @event.id, attendee_id: @attendee.id, rsvp_response: 0 ), style:"color: #ffffff; font-size:16px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block" %>
-      </td>
-    </tr>
+<!-- Begin Mail -->
+<div style="text-align: left; display: inline-block; width: 960px; height: 1500px; margin: 0; padding: 0; background:transparent url('<%= @invitation_image_url %>') top left no-repeat">
+  <!-- Content -->
+  <table cellpadding="0" cellspacing="0" style="border-collapse: separate; margin: 260px 80px 0; width: 800px; height: 600px;">
+    <thead>
+      <tr>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div style="text-align:center; margin: 0 auto; display: block;">
+            <h2 style="font-size: 26px; text-transform: uppercase; letter-spacing: -1px; "><%= @attendee.full_name_with_prefix %></h2>
+            <h3 style="font-size: 24px; font-weight: normal; text-transform: uppercase; letter-spacing: -1px; "><%= @attendee.designation %></h3>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div style="text-align:center; margin: 0 auto; display: block; padding: 5px 0">
+            <h2 style="font-size: 26px; margin: 50px 0; text-transform: uppercase; letter-spacing: -1px; "><%= @event.name %></h2>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <!-- Event Details -->
+          <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; margin: 30px 0; font-size: 16px;">
+            <tbody>
+              <tr style="line-height: 40px;">
+                <td width="150"><strong>Tarikh</strong></td>
+                <td>:</td>
+                <td><%= @event.date %></td>
+              </tr>
+              <tr style="line-height: 40px;">
+                <td width="150"><strong>Masa</strong></td>
+                <td>:</td>
+                <td><%= @event.time_string %></td>
+              </tr>
+              <tr style="line-height: 40px;">
+                <td width="150"><strong>Tempat</strong></td>
+                <td>:</td>
+                <td><%= @event.place %></td>
+              </tr>
+              <tr style="line-height: 40px;">
+                <td width="150"><strong>Perasmi</strong></td>
+                <td>:</td>
+                <td><%= @event.organizer %></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td style="line-height: 40px; padding: 40px 0;" colspan="3">
+                  <p style="line-height: 10px;">* Aturcara seperti dilampiran</p>
+                  <p style="line-height: 10px;">* Sila RSVP sebelum <%= @event.rsvp_by %></p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <center>
+                    <%= link_to 'Saya Akan Hadir', update_rsvp_event_url(id: @event.id, attendee_id: @attendee.id, rsvp_response: 1 ), style:"color: #ffffff; font-size:20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:80px; width:300px; display:inline-block; text-decoration: none; background: blue; margin: 0 20px 20px; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; background-color: rgb(17, 85, 204) !important;" %>
+                    <%= link_to 'Saya Tidak Akan Hadir', update_rsvp_event_url(id: @event.id, attendee_id: @attendee.id, rsvp_response: 0 ), style:"color: #ffffff; font-size:20px; font-weight: bold; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:80px; width:300px; display:inline-block; text-decoration: none; background: blue; margin: 0 20px 20px; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; background-color: rgb(17, 85, 204) !important;" %>
+                  </center>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Footer -->
+  <table width="100%" height="500px" cellpadding="0" cellspacing="0" style="border: none;">
+    <tbody>
+      <tr>
+        <td>
+          <div class="social-links" style="text-align: center; margin: 200px auto 0;">
+            <%= link_to 'Facebook', '#', style:"width: 70px; height: 70px; display: inline-block; background: transparent; text-indent: -9999em;margin: 0 25px 0 0;" %>
+            <%= link_to 'Twitter', '#', style:"width: 70px; height: 70px; display: inline-block; background: transparent; text-indent: -9999em;margin: 0 25px 0 0;"  %>
+            <%= link_to 'Vimeo', '#', style:"width: 70px; height: 70px; display: inline-block; background: transparent; text-indent: -9999em;margin: 0 25px 0 0;"  %>
+            <%= link_to 'Youtube', '#', style:"width: 70px; height: 70px; display: inline-block; background: transparent; text-indent: -9999em;margin: 0 25px 0 0;"  %>
+          </div>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
-
-</div>
+<!-- End Main -->
