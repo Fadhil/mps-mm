@@ -129,8 +129,8 @@
                         %ul.print-disabled
                           %li
                             .field
-                              %label.radio.checked{for: "check_present_#{values[:attendee_id]}"}
-                                %input.radio{type: :radio, value: 'present', name: "present_radio[#{values[:attendee_id]}]", checked: 'checked', id: "check_present_#{values[:attendee_id]}" }  
+                              %label.radio{for: "check_present_#{values[:attendee_id]}"}
+                                %input.radio{type: :radio, value: 'present', name: "present_radio[#{values[:attendee_id]}]", id: "check_present_#{values[:attendee_id]}" }  
                                 / "check_present_#{values[:attendee_id]}[]",values[:attendee_id], name: 'present_ids[]', type: 'radio',checked: false, class: 'radio', value: values[:attendee_id]
                                 %span
                               %small
