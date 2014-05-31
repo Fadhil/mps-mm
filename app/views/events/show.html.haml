@@ -168,12 +168,12 @@
               =t('add_attendee')
             %span
               |
-            = link_to 'javascript:', :onClick => "submit();" do
+            = link_to '', :onClick => "$('form')[1].submit;" do
               %i.icon-plus
               =t('add_attendee')
             %span
               |
-            = link_to 'javascript:', :onClick => "$('form')[1].action = '#{@event.id}/update_attendance';submit();" do
+            = link_to '', :onClick => "$('form')[1].action = '#{@event.id}/update_attendance';$('form')[1].submit;" do
               %i.icon-pencil
               =t('update')
 
