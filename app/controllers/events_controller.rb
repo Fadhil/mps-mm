@@ -225,13 +225,13 @@ class EventsController < ApplicationController
     @attendance_list = Event.find(params[:id]).attendance_list
     @attendance_list.update_attributes(params[:attendance_list])
     @attendance_list.save
-    present_radio = params[:present_radio]
-    if present_radio
-      present_radio.each do |key, value|
+    # present_radio = params[:present_radio]
+    # if present_radio
+    #   present_radio.each do |key, value|
 
-      end
-      Rails.logger.info "\n\n\n\n\npresent radio: #{present_radio}\n\n\n\n\n\n"
-    end
+    #   end
+    #   Rails.logger.info "\n\n\n\n\npresent radio: #{present_radio}\n\n\n\n\n\n"
+    # end
     respond_to do |format|
       format.html { redirect_to request.referrer || root_path }
     end
