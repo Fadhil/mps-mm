@@ -17,12 +17,13 @@
           %li
             =link_to events_path do
               = t('.list_all_events')
-          %li
-            =link_to '#' do
-              %i.icon-gplus
-          %li
-            =link_to '#' do
-              %i.icon-rss
+          /
+            %li
+              =link_to '#' do
+                %i.icon-gplus
+            %li
+              =link_to '#' do
+                %i.icon-rss
           - if current_user
             %li
               = link_to 'Logout', destroy_user_session_path, method: :delete
