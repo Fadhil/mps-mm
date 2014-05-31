@@ -171,11 +171,11 @@
               = link_to 'javascript:', :onClick => "$('form')[1].submit();" do
                 %i.icon-plus
                 =t('add_attendee')
-              
               %div.update-attendance
-                = link_to 'javascript:', :onClick => "$('form')[1].action = '#{@event.id}/update_attendance';$('form')[1].submit();" do
-                  %i.icon-pencil
-                  =t('update_attendance')
+                %span.pretty.medium.btn.info.print-disabled
+                  = link_to 'javascript:', :onClick => "$('form')[1].action = '#{@event.id}/update_attendance';$('form')[1].submit();" do
+                    %i.icon-pencil
+                    =t('update_attendance')
 
 
 
