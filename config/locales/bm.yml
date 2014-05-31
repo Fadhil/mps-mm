@@ -73,6 +73,7 @@ bm:
   update: 'Kemas Kini'
   send: 'Hantar'
   select: 'Pilih'
+  search: 'Cari'
 
   media_profiles: 
     index:
