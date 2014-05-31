@@ -71,6 +71,7 @@ bm:
   media_profile_successfully_updated: 'Profile Media Berjaya Dikemas Kini'
   save: 'Simpan'
   update: 'Kemas Kini'
+  update_attendance: 'Kemas Kini Kehadiran'
   send: 'Hantar'
   select: 'Pilih'
   search: 'Cari'
