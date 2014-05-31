@@ -171,8 +171,8 @@
               = link_to 'javascript:', :onClick => "$('form')[1].submit();" do
                 %i.icon-plus
                 =t('add_attendee')
-              %br
-              %div
+              
+              %div.update-attendance
                 = link_to 'javascript:', :onClick => "$('form')[1].action = '#{@event.id}/update_attendance';$('form')[1].submit();" do
                   %i.icon-pencil
                   =t('update_attendance')
