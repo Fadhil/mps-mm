@@ -1,5 +1,5 @@
 class InvitationMailer < ActionMailer::Base
-  default from: "media@mps.gov.my", content_type: "text/html"
+  default from: "Media MPS <media@mps.gov.my>", content_type: "text/html"
 
 
   def send_invites(media_profile, event, attendee, the_domain)
